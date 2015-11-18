@@ -155,7 +155,6 @@
         <!--View Controller-->
         <scene sceneID="20g-zA-Upl">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7eY-Dd-xTd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="JkN-2z-rvg" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H9f-lK-GYe"/>
@@ -206,13 +205,13 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sleep Wanted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxR-Bv-2is">
-                                <rect key="frame" x="154" y="168" width="107" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8 hrs 0 min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxR-Bv-2is">
+                                <rect key="frame" x="20" y="168" width="374" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="bmv-rz-WDR">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minimumValue="6" maximumValue="12" stepValue="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="bmv-rz-WDR">
                                 <rect key="frame" x="160" y="207" width="94" height="29"/>
                                 <connections>
                                     <action selector="wantPressed:" destination="JkN-2z-rvg" eventType="valueChanged" id="QHw-Oc-dUE"/>
@@ -264,6 +263,7 @@
                         <outlet property="wantStepper" destination="bmv-rz-WDR" id="gKr-l8-NWy"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7eY-Dd-xTd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="374" y="-23"/>
         </scene>

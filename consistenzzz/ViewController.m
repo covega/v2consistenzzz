@@ -132,9 +132,9 @@ NSDate * wakePickerTime;
 }
 
 - (IBAction)wantPressed:(id)sender {
-    int wantHours = self.wantStepper.value;
-    int wantMin = self.wantStepper.value * 15;
-    self.wantLabel.text = [NSString stringWithFormat:@"%d hours %d min", wantHours, wantMin];
+    int wantHours = self.wantStepper.value / 1;
+    int wantMin = (self.wantStepper.value - wantHours) * 60;
+    self.wantLabel.text = [NSString stringWithFormat:@"%d hrs %d min", wantHours, wantMin];
     
 }
 @end
