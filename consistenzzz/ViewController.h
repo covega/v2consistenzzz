@@ -11,6 +11,10 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *wantLabel;
+@property (weak, nonatomic) IBOutlet UIStepper *wantStepper;
+- (IBAction)wantPressed:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UIDatePicker *sleepTimePicker;
 
 @property (weak, nonatomic) IBOutlet UILabel *label1;
@@ -23,5 +27,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *sleepTime;
 @property (weak, nonatomic) IBOutlet UILabel *wakeTime;
+
+
+
 
 @end
