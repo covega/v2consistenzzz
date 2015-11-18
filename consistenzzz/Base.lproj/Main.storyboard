@@ -17,6 +17,18 @@
                         <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 Debt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXH-ai-wzn">
+                                <rect key="frame" x="176" y="369" width="52" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqR-zF-Aim">
+                                <rect key="frame" x="176" y="405" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBl-2K-Ey0">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Sleep">
@@ -139,6 +151,8 @@
                     <navigationItem key="navigationItem" id="oWf-D4-OzN"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="debtLabel" destination="KXH-ai-wzn" id="LyQ-hU-Ux4"/>
+                        <outlet property="percentLabel" destination="cqR-zF-Aim" id="Pqo-9f-PF8"/>
                         <outlet property="sleepTime" destination="iTX-yI-V45" id="4oy-0o-O76"/>
                         <outlet property="sleepTimeButton" destination="PBl-2K-Ey0" id="iEd-3S-bJl"/>
                         <outlet property="sleepTimeLabel" destination="gEY-Ki-qOb" id="FuG-vg-7Dm"/>
@@ -150,7 +164,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="966" y="10"/>
+            <point key="canvasLocation" x="876" y="-30"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="20g-zA-Upl">
@@ -169,6 +183,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="Set Up!"/>
                                 <connections>
+                                    <action selector="setUpPushed:" destination="JkN-2z-rvg" eventType="touchUpInside" id="neK-v3-O7f"/>
                                     <segue destination="BYZ-38-t0r" kind="show" id="sOK-ao-LeT"/>
                                 </connections>
                             </button>
@@ -244,12 +259,15 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="iMP-yZ-mzw">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="7" maximumValue="12" stepValue="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="iMP-yZ-mzw">
                                 <rect key="frame" x="160" y="391" width="94" height="29"/>
+                                <connections>
+                                    <action selector="getPressed:" destination="JkN-2z-rvg" eventType="valueChanged" id="0iI-qU-sdr"/>
+                                </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Actual Sleep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBY-3k-uFE">
-                                <rect key="frame" x="159" y="350" width="96" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="7 hrs 0 min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBY-3k-uFE">
+                                <rect key="frame" x="20" y="347" width="374" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -259,6 +277,8 @@
                     <navigationItem key="navigationItem" id="2XK-04-7NK"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="getLabel" destination="hBY-3k-uFE" id="vg9-eU-jbn"/>
+                        <outlet property="getStepper" destination="iMP-yZ-mzw" id="yUb-bB-oQI"/>
                         <outlet property="wantLabel" destination="fxR-Bv-2is" id="Lii-qX-fOm"/>
                         <outlet property="wantStepper" destination="bmv-rz-WDR" id="gKr-l8-NWy"/>
                     </connections>

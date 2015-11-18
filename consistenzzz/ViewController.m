@@ -137,4 +137,26 @@ NSDate * wakePickerTime;
     self.wantLabel.text = [NSString stringWithFormat:@"%d hrs %d min", wantHours, wantMin];
     
 }
+
+
+- (IBAction)getPressed:(id)sender {
+    int getHours = self.getStepper.value;
+    int getMin = (self.getStepper.value - getHours) * 60;
+    self.getLabel.text = [NSString stringWithFormat:@"%d hrs %d min", getHours, getMin];
+}
+
+- (IBAction)setUpPushed:(id)sender {
+    float minSleep = 0;
+    float days = 14;
+    float want = self.wantStepper.value;
+    float get = self.getStepper.value;
+    float debt = days * (get - ((24 - get) * (want/(24 - want))));
+    float maxSleepDebt = days * (minSleep - ((24 - minSleep) * (want/(24 - want))));
+    float percentage = 1 - (debt/maxSleepDebt);
+    self.debtLabel.text = [NSString stringWithFormat:@"%f Debt", debt];
+    self.percentLabel.text = [NSString stringWithFormat:@"%f %%", percentage];
+    
+}
+
+
 @end
