@@ -18,6 +18,58 @@
 NSDate * sleepPickerTime;
 NSDate * wakePickerTime;
 
+- (IBAction)setNotificationTime:(id)sender {
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    
+    localNotification.alertAction = @"Go To App";
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    //localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
+    
+    //get picker time
+    NSCalendar * calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitHour| NSCalendarUnitMinute) fromDate: _sleepTimePicker.date];
+    
+    NSInteger hour = [components hour];
+    NSInteger minute = [components minute];
+    if(hour > 12){
+        hour = hour-12;
+    }
+    NSString *hourString = [NSString stringWithFormat:@"%ld:", (long)hour];
+    
+    NSString *minuteString = [NSString stringWithFormat:@"%ld", (long)minute];
+    NSUInteger length = [minuteString length];
+    
+    if(length < 2){
+        NSString *zero = @"0";
+        minuteString = [zero stringByAppendingString:minuteString];
+    }
+    
+    //set stuff
+    if(_sleepTimeButton.enabled == NO){
+        //set sleepTime to be label to be this value, keep hidden
+        sleepPickerTime = _sleepTimePicker.date;
+        _sleepTime.text = [hourString stringByAppendingString:minuteString];
+        _sleepTime.hidden = YES;
+        
+        localNotification.fireDate = sleepPickerTime;
+        localNotification.alertBody = @"Sleep time";
+    } else if (_wakeTimeButton.enabled == NO){
+        //set wake time label to be this value, keep hidden
+        wakePickerTime = _sleepTimePicker.date;
+        
+        
+        _wakeTime.text = [hourString stringByAppendingString:minuteString];
+        _wakeTime.hidden = YES;
+        
+        localNotification.fireDate = wakePickerTime;
+        localNotification.alertBody = @"Wake Up time";
+        localNotification.soundName = @"alarm-clock-sound.caf";
+    }
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
+}
+
 //if sleepTimeButton is enabled, that means wake time is currently selected in picker
 - (IBAction)displaySleepTime:(id)sender {
     if(_sleepTimeButton.enabled == YES){
@@ -28,38 +80,14 @@ NSDate * wakePickerTime;
         _sleepTime.hidden = YES;
         _sleepTimeLabel.hidden = YES;
         
-        wakePickerTime = _sleepTimePicker.date;
         //NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        NSCalendar * calendar = [NSCalendar currentCalendar];
-        NSDateComponents *components = [calendar components:(NSCalendarUnitHour| NSCalendarUnitMinute) fromDate: wakePickerTime];
         
-        NSInteger hour = [components hour];
-        NSInteger minute = [components minute];
-        if(hour > 12){
-            hour = hour-12;
-        }
-        NSString *hourString = [NSString stringWithFormat:@"%ld:", (long)hour];
-        
-        NSString *minuteString = [NSString stringWithFormat:@"%ld", (long)minute];
-        NSUInteger length = [minuteString length];
-        if(length < 2){
-            NSString *zero = @"0";
-            minuteString = [zero stringByAppendingString:minuteString];
-        }
 
-        _wakeTime.text = [hourString stringByAppendingString:minuteString];
-        
         if(sleepPickerTime){
             [_sleepTimePicker setDate:sleepPickerTime];
         }
         
-        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-        localNotification.fireDate = sleepPickerTime;
-        localNotification.alertBody = @"Wake Up time";
-        localNotification.alertAction = @"Go To App";
-        localNotification.timeZone = [NSTimeZone defaultTimeZone];
-        //localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
-        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        
     }
     _sleepTimeButton.enabled = NO;
 }
@@ -73,38 +101,10 @@ NSDate * wakePickerTime;
         
         _wakeTime.hidden = YES;
         _wakeTimeLabel.hidden = YES;
-        
-        sleepPickerTime = _sleepTimePicker.date;
-      
-        NSCalendar * calendar = [NSCalendar currentCalendar];
-        NSDateComponents *components = [calendar components:(NSCalendarUnitHour| NSCalendarUnitMinute) fromDate: sleepPickerTime];
-        
-        NSInteger hour = [components hour];
-        NSInteger minute = [components minute];
-        if(hour > 12){
-            hour = hour-12;
-        }
-        NSString *hourString = [NSString stringWithFormat:@"%ld:", (long)hour];
 
-        NSString *minuteString = [NSString stringWithFormat:@"%ld", (long)minute];
-        NSUInteger length = [minuteString length];
-        if(length < 2){
-            NSString *zero = @"0";
-            minuteString = [zero stringByAppendingString:minuteString];
-        }
-        _sleepTime.text = [hourString stringByAppendingString:minuteString];
         if(wakePickerTime){
             [_sleepTimePicker setDate:wakePickerTime];
         }
-        
-
-        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-        localNotification.fireDate = sleepPickerTime;
-        localNotification.alertBody = @"Sleep time";
-        localNotification.alertAction = @"Go To App";
-        localNotification.timeZone = [NSTimeZone defaultTimeZone];
-        //localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
-        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
         
     }
     _wakeTimeButton.enabled = NO;

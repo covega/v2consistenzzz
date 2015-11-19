@@ -24,4 +24,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *sleepTime;
 @property (weak, nonatomic) IBOutlet UILabel *wakeTime;
 
+@property (weak, nonatomic) IBOutlet UIButton *countDownHours;
+@property (weak, nonatomic) IBOutlet UIButton *countDownMins;
+
 @end

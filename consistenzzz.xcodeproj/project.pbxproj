@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5892A22A1BFD3DC100051322 /* alarm-clock-sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 5892A2291BFD3DC100051322 /* alarm-clock-sound.caf */; };
 		58DC78BE1BF66C930063B2CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DC78BD1BF66C930063B2CE /* main.m */; };
 		58DC78C11BF66C930063B2CE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DC78C01BF66C930063B2CE /* AppDelegate.m */; };
 		58DC78C41BF66C930063B2CE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DC78C31BF66C930063B2CE /* ViewController.m */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5892A2291BFD3DC100051322 /* alarm-clock-sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "alarm-clock-sound.caf"; sourceTree = "<group>"; };
 		58DC78B81BF66C930063B2CE /* consistenzzz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = consistenzzz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58DC78BC1BF66C930063B2CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58DC78BD1BF66C930063B2CE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		58DC78D51BF66C930063B2CE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5892A2291BFD3DC100051322 /* alarm-clock-sound.caf */,
 				58DC78D61BF66C930063B2CE /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58DC78C71BF66C930063B2CE /* Main.storyboard in Resources */,
+				5892A22A1BFD3DC100051322 /* alarm-clock-sound.caf in Resources */,
 				58DC78CC1BF66C930063B2CE /* LaunchScreen.xib in Resources */,
 				58DC78C91BF66C930063B2CE /* Images.xcassets in Resources */,
 			);

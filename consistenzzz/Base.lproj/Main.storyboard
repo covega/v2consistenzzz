@@ -22,7 +22,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="55" width="46" height="30"/>
+                                    <rect key="frame" x="17" y="59" width="41" height="26"/>
                                 </variation>
                                 <connections>
                                     <action selector="displaySleepTime:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u74-7c-emU"/>
@@ -34,7 +34,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="135" width="38" height="30"/>
+                                    <rect key="frame" x="17" y="135" width="38" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="displayWakeTime:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j8K-7b-Zz6"/>
@@ -54,29 +54,20 @@
                             </tabBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJJ-40-rad">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Bedtime in mins">
+                                <state key="normal" title="Bedtime in ">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="134" y="521" width="132" height="30"/>
+                                    <rect key="frame" x="81" y="521" width="85" height="30"/>
                                 </variation>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTX-yI-V45">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Set" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTX-yI-V45">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="16" y="206" width="112" height="31"/>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjO-A1-j7F">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="251" width="112" height="31"/>
                                 </variation>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="JxX-9f-zkZ">
@@ -103,7 +94,47 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="12" y="243" width="42" height="22"/>
+                                    <rect key="frame" x="13" y="196" width="42" height="22"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTr-18-TL3">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Set">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="86" width="58" height="48"/>
+                                </variation>
+                                <connections>
+                                    <action selector="setNotificationTime:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RVs-AR-ylV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCs-s8-Ssx">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="hours">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="170" y="521" width="60" height="30"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GHJ-5R-ygG">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="mins">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="232" y="520" width="60" height="31"/>
+                                </variation>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Set" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjO-A1-j7F">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="17" y="206" width="112" height="31"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -115,10 +146,13 @@
                                 <exclude reference="ZbG-6f-JLj"/>
                                 <exclude reference="IJJ-40-rad"/>
                                 <exclude reference="iTX-yI-V45"/>
-                                <exclude reference="fjO-A1-j7F"/>
                                 <exclude reference="JxX-9f-zkZ"/>
                                 <exclude reference="gEY-Ki-qOb"/>
                                 <exclude reference="27E-1G-dIa"/>
+                                <exclude reference="LTr-18-TL3"/>
+                                <exclude reference="KCs-s8-Ssx"/>
+                                <exclude reference="GHJ-5R-ygG"/>
+                                <exclude reference="fjO-A1-j7F"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -128,14 +162,19 @@
                                 <include reference="ZbG-6f-JLj"/>
                                 <include reference="IJJ-40-rad"/>
                                 <include reference="iTX-yI-V45"/>
-                                <include reference="fjO-A1-j7F"/>
                                 <include reference="JxX-9f-zkZ"/>
                                 <include reference="gEY-Ki-qOb"/>
                                 <include reference="27E-1G-dIa"/>
+                                <include reference="LTr-18-TL3"/>
+                                <include reference="KCs-s8-Ssx"/>
+                                <include reference="GHJ-5R-ygG"/>
+                                <include reference="fjO-A1-j7F"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="countDownHours" destination="KCs-s8-Ssx" id="2W9-WU-eCT"/>
+                        <outlet property="countDownMins" destination="GHJ-5R-ygG" id="kHU-Ka-z2W"/>
                         <outlet property="sleepTime" destination="iTX-yI-V45" id="4oy-0o-O76"/>
                         <outlet property="sleepTimeButton" destination="PBl-2K-Ey0" id="iEd-3S-bJl"/>
                         <outlet property="sleepTimeLabel" destination="gEY-Ki-qOb" id="FuG-vg-7Dm"/>
