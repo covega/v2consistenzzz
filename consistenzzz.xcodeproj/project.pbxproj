@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4630FFCE1BFDD4F600FF1C2F /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4630FFCD1BFDD4F600FF1C2F /* HomeViewController.m */; };
 		4630FFD21BFDDFDA00FF1C2F /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4630FFD01BFDDFDA00FF1C2F /* TestViewController.m */; };
 		4630FFD31BFDDFDA00FF1C2F /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4630FFD11BFDDFDA00FF1C2F /* TestViewController.xib */; };
 		58DC78BE1BF66C930063B2CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DC78BD1BF66C930063B2CE /* main.m */; };
@@ -30,8 +29,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4630FFCC1BFDD4F600FF1C2F /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		4630FFCD1BFDD4F600FF1C2F /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		4630FFCF1BFDDFDA00FF1C2F /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		4630FFD01BFDDFDA00FF1C2F /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		4630FFD11BFDDFDA00FF1C2F /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
@@ -96,8 +93,6 @@
 				58DC78C01BF66C930063B2CE /* AppDelegate.m */,
 				58DC78C21BF66C930063B2CE /* ViewController.h */,
 				58DC78C31BF66C930063B2CE /* ViewController.m */,
-				4630FFCC1BFDD4F600FF1C2F /* HomeViewController.h */,
-				4630FFCD1BFDD4F600FF1C2F /* HomeViewController.m */,
 				58DC78C51BF66C930063B2CE /* Main.storyboard */,
 				58DC78C81BF66C930063B2CE /* Images.xcassets */,
 				58DC78CA1BF66C930063B2CE /* LaunchScreen.xib */,
@@ -235,7 +230,6 @@
 			files = (
 				58DC78C41BF66C930063B2CE /* ViewController.m in Sources */,
 				58DC78C11BF66C930063B2CE /* AppDelegate.m in Sources */,
-				4630FFCE1BFDD4F600FF1C2F /* HomeViewController.m in Sources */,
 				58DC78BE1BF66C930063B2CE /* main.m in Sources */,
 				4630FFD21BFDDFDA00FF1C2F /* TestViewController.m in Sources */,
 			);
