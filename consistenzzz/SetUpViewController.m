@@ -7,12 +7,15 @@
 //
 
 #import "SetUpViewController.h"
+#import "ViewController.h"
 
 @interface SetUpViewController ()
 
 @end
 
 @implementation SetUpViewController
+
+
 
 //set up
 - (IBAction)wantPressed:(id)sender {
@@ -30,19 +33,7 @@
 }
 
 - (IBAction)setUpPushed:(id)sender {
-    float minSleep = 0;
-    float days = 14;
-    float want = self.wantStepper.value;
-    float get = self.getStepper.value;
-    float debt = days * (get - ((24 - get) * (want/(24 - want))));
-    float maxSleepDebt = days * (minSleep - ((24 - minSleep) * (want/(24 - want))));
-    float percentage = 1 - (debt/maxSleepDebt);
-    int debtHours = (debt / 1);
-    int debtMins = ((debt - debtHours) * 60) / 1;
-    int percentDisplay = (percentage * 100) / 1;
-    NSLog(@"Debt = %f", debt);
-    self.debtLabel.text = [NSString stringWithFormat:@"Debt = %d hrs %d min", -debtHours, -debtMins];
-    self.percentLabel.text = [NSString stringWithFormat:@"%d %%", percentDisplay];
+    
 }
 
 
@@ -57,14 +48,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    ViewController *home = (ViewController *)segue.destinationViewController;
+    float want = self.wantStepper.value;
+    float get = self.getStepper.value;
+    home.want = want;
+    home.get = get;
+    
 }
-*/
+
 
 @end

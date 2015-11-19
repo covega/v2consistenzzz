@@ -51,7 +51,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *ninetyFive;
 @property (weak, nonatomic) IBOutlet UIImageView *hundred;
 
-
+@property(nonatomic) float want;
+@property(nonatomic) float get;
+@property (weak, nonatomic) IBOutlet UILabel *debtLabel;
+@property (weak, nonatomic) IBOutlet UILabel *percentLabel;
 
 
 

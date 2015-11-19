@@ -165,6 +165,7 @@ NSDate * wakePickerTime;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound|UIUserNotificationTypeBadge
                                                                                                               categories:nil]];
@@ -202,8 +203,29 @@ NSDate * wakePickerTime;
     _ninetyFive.hidden = YES;
     _hundred.hidden = YES;
     
-    float sleepDebtPercent = .75; // hard coded right now......
-    int screen = ((100 * sleepDebtPercent) / 5);
+    
+    //sleep debt/percentage logic
+    float minSleep = 0;
+    float days = 14;
+    float want = self.want;
+    float get = self.get;
+    float debt = days * (get - ((24 - get) * (want/(24 - want))));
+//    NSLog(@"want = %f", want);
+//    NSLog(@"get = %f", get);
+//    NSLog(@"debt = %f", debt);
+    
+    float maxSleepDebt = days * (minSleep - ((24 - minSleep) * (want/(24 - want))));
+    float percentage = 1 - (debt/maxSleepDebt);
+    int debtHours = (debt / 1);
+    int debtMins = ((debt - debtHours) * 60) / 1;
+    int percentDisplay = (percentage * 100) / 1;
+//    NSLog(@"Debt = %f", debt);
+//    NSLog(@"Debt = %d hrs %d min", -debtHours, -debtMins);
+//    NSLog(@"%d %%", percentDisplay);
+    self.debtLabel.text = [NSString stringWithFormat:@"Sleep Debt = %d hrs %d min", -debtHours, -debtMins];
+    self.percentLabel.text = [NSString stringWithFormat:@"Funtioning at %d%%", percentDisplay];
+    
+    int screen = ((100 * percentage) / 5);
     
     switch (screen) { // show one graphic
         case 0:
