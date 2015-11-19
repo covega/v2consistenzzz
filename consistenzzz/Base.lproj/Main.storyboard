@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home-->
         <scene sceneID="a7h-tq-fY5">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Gy-UV-9Tk" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="1Gy-UV-9Tk" customClass="home" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J2T-G2-DvC"/>
                         <viewControllerLayoutGuide type="bottom" id="eGg-pK-Aer"/>
@@ -108,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ERq-3Y-UuT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1107" y="-54"/>
+            <point key="canvasLocation" x="837" y="-50"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="20g-zA-Upl">
