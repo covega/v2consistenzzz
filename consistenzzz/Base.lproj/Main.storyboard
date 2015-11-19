@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dZ7-X6-yYF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1Gy-UV-9Tk">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--Home View Controller-->
         <scene sceneID="a7h-tq-fY5">
             <objects>
-                <viewController id="1Gy-UV-9Tk" customClass="home" sceneMemberID="viewController">
+                <viewController id="1Gy-UV-9Tk" customClass="HomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J2T-G2-DvC"/>
                         <viewControllerLayoutGuide type="bottom" id="eGg-pK-Aer"/>
@@ -105,10 +105,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="hha" destination="JC5-nB-gcy" id="O87-jb-e0Z"/>
+                        <outlet property="label1" destination="siz-JL-nf2" id="8kK-6o-JXe"/>
+                        <outlet property="sleepTime" destination="siz-JL-nf2" id="eaz-FG-fWo"/>
+                        <outlet property="sleepTimeButton" destination="hZM-la-gz3" id="Asx-8D-Bi3"/>
+                        <outlet property="sleepTimeLabel" destination="siz-JL-nf2" id="xlz-GB-VWC"/>
+                        <outlet property="sleeptTimeLabel" destination="O8P-Uh-npX" id="lA6-r0-p20"/>
+                        <outlet property="wakeTime" destination="JY9-MU-1kr" id="uOX-Sc-ILj"/>
+                        <outlet property="wakeTimeButton" destination="aMt-rN-OJ8" id="SsZ-lb-Tvf"/>
+                        <outlet property="wakeTimeLabel" destination="XLJ-kS-G49" id="qIV-wO-hDZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ERq-3Y-UuT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="837" y="-50"/>
+            <point key="canvasLocation" x="1029" y="-30"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="20g-zA-Upl">
