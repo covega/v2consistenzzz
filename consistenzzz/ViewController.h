@@ -22,6 +22,8 @@
 - (IBAction)getPressed:(id)sender;
 
 - (IBAction)setUpPushed:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *debtLabel;
+@property (weak, nonatomic) IBOutlet UILabel *percentLabel;
 
 //home screen
 @property (weak, nonatomic) IBOutlet UIDatePicker *sleepTimePicker;
@@ -36,9 +38,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *sleepTime;
 @property (weak, nonatomic) IBOutlet UILabel *wakeTime;
-
-@property (weak, nonatomic) IBOutlet UILabel *debtLabel;
-@property (weak, nonatomic) IBOutlet UILabel *percentLabel;
 
 
 @end
