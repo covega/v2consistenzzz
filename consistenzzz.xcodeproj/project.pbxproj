@@ -36,6 +36,7 @@
 		D315B8051BFE0196002AA9A5 /* 90-LG.png in Resources */ = {isa = PBXBuildFile; fileRef = D315B7F01BFE0196002AA9A5 /* 90-LG.png */; };
 		D315B8061BFE0196002AA9A5 /* 95-DG.png in Resources */ = {isa = PBXBuildFile; fileRef = D315B7F11BFE0196002AA9A5 /* 95-DG.png */; };
 		D315B8071BFE0196002AA9A5 /* 100-DG.png in Resources */ = {isa = PBXBuildFile; fileRef = D315B7F21BFE0196002AA9A5 /* 100-DG.png */; };
+		D315B80B1BFE15BE002AA9A5 /* SetUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D315B80A1BFE15BE002AA9A5 /* SetUpViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,8 @@
 		D315B7F01BFE0196002AA9A5 /* 90-LG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "90-LG.png"; sourceTree = "<group>"; };
 		D315B7F11BFE0196002AA9A5 /* 95-DG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "95-DG.png"; sourceTree = "<group>"; };
 		D315B7F21BFE0196002AA9A5 /* 100-DG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "100-DG.png"; sourceTree = "<group>"; };
+		D315B8091BFE15BE002AA9A5 /* SetUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetUpViewController.h; sourceTree = "<group>"; };
+		D315B80A1BFE15BE002AA9A5 /* SetUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetUpViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +133,8 @@
 				58DC78C21BF66C930063B2CE /* ViewController.h */,
 				58DC78C31BF66C930063B2CE /* ViewController.m */,
 				58DC78C51BF66C930063B2CE /* Main.storyboard */,
+				D315B8091BFE15BE002AA9A5 /* SetUpViewController.h */,
+				D315B80A1BFE15BE002AA9A5 /* SetUpViewController.m */,
 				58DC78C81BF66C930063B2CE /* Images.xcassets */,
 				58DC78CA1BF66C930063B2CE /* LaunchScreen.xib */,
 				58DC78BB1BF66C930063B2CE /* Supporting Files */,
@@ -315,6 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D315B80B1BFE15BE002AA9A5 /* SetUpViewController.m in Sources */,
 				58DC78C41BF66C930063B2CE /* ViewController.m in Sources */,
 				58DC78C11BF66C930063B2CE /* AppDelegate.m in Sources */,
 				58DC78BE1BF66C930063B2CE /* main.m in Sources */,
