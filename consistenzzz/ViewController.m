@@ -210,20 +210,13 @@ NSDate * wakePickerTime;
     float want = self.want;
     float get = self.get;
     float debt = days * (get - ((24 - get) * (want/(24 - want))));
-//    NSLog(@"want = %f", want);
-//    NSLog(@"get = %f", get);
-//    NSLog(@"debt = %f", debt);
-    
     float maxSleepDebt = days * (minSleep - ((24 - minSleep) * (want/(24 - want))));
     float percentage = 1 - (debt/maxSleepDebt);
     int debtHours = (debt / 1);
     int debtMins = ((debt - debtHours) * 60) / 1;
     int percentDisplay = (percentage * 100) / 1;
-//    NSLog(@"Debt = %f", debt);
-//    NSLog(@"Debt = %d hrs %d min", -debtHours, -debtMins);
-//    NSLog(@"%d %%", percentDisplay);
     self.debtLabel.text = [NSString stringWithFormat:@"Sleep Debt = %d hrs %d min", -debtHours, -debtMins];
-    self.percentLabel.text = [NSString stringWithFormat:@"Funtioning at %d%%", percentDisplay];
+    self.percentLabel.text = [NSString stringWithFormat:@"Functioning at %d%%", percentDisplay];
     
     int screen = ((100 * percentage) / 5);
     
