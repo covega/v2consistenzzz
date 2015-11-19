@@ -15,6 +15,7 @@
 		58DC78C91BF66C930063B2CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58DC78C81BF66C930063B2CE /* Images.xcassets */; };
 		58DC78CC1BF66C930063B2CE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58DC78CA1BF66C930063B2CE /* LaunchScreen.xib */; };
 		58DC78D81BF66C930063B2CE /* consistenzzzTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DC78D71BF66C930063B2CE /* consistenzzzTests.m */; };
+<<<<<<< HEAD
 		D315B7F31BFE0196002AA9A5 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = D315B7DE1BFE0196002AA9A5 /* 0.png */; };
 		D315B7F41BFE0196002AA9A5 /* 5-DR.png in Resources */ = {isa = PBXBuildFile; fileRef = D315B7DF1BFE0196002AA9A5 /* 5-DR.png */; };
 		D315B7F51BFE0196002AA9A5 /* 10-DR.png in Resources */ = {isa = PBXBuildFile; fileRef = D315B7E01BFE0196002AA9A5 /* 10-DR.png */; };
@@ -36,6 +37,8 @@
 		D315B8051BFE0196002AA9A5 /* 90-LG.png in Resources */ = {isa = PBXBuildFile; fileRef = D315B7F01BFE0196002AA9A5 /* 90-LG.png */; };
 		D315B8061BFE0196002AA9A5 /* 95-DG.png in Resources */ = {isa = PBXBuildFile; fileRef = D315B7F11BFE0196002AA9A5 /* 95-DG.png */; };
 		D315B8071BFE0196002AA9A5 /* 100-DG.png in Resources */ = {isa = PBXBuildFile; fileRef = D315B7F21BFE0196002AA9A5 /* 100-DG.png */; };
+=======
+>>>>>>> 56ca05f8d4507fc76f1a129c82bb3f3f677c79d3
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,7 @@
 		58DC78D11BF66C930063B2CE /* consistenzzzTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = consistenzzzTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		58DC78D61BF66C930063B2CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58DC78D71BF66C930063B2CE /* consistenzzzTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = consistenzzzTests.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		D315B7DE1BFE0196002AA9A5 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		D315B7DF1BFE0196002AA9A5 /* 5-DR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5-DR.png"; sourceTree = "<group>"; };
 		D315B7E01BFE0196002AA9A5 /* 10-DR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "10-DR.png"; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 		D315B7F01BFE0196002AA9A5 /* 90-LG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "90-LG.png"; sourceTree = "<group>"; };
 		D315B7F11BFE0196002AA9A5 /* 95-DG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "95-DG.png"; sourceTree = "<group>"; };
 		D315B7F21BFE0196002AA9A5 /* 100-DG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "100-DG.png"; sourceTree = "<group>"; };
+=======
+>>>>>>> 56ca05f8d4507fc76f1a129c82bb3f3f677c79d3
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +146,10 @@
 		58DC78BB1BF66C930063B2CE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				D315B8081BFE019F002AA9A5 /* home screen graphic */,
+=======
+>>>>>>> 56ca05f8d4507fc76f1a129c82bb3f3f677c79d3
 				58DC78BC1BF66C930063B2CE /* Info.plist */,
 				58DC78BD1BF66C930063B2CE /* main.m */,
 			);
@@ -165,6 +174,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		D315B8081BFE019F002AA9A5 /* home screen graphic */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +203,8 @@
 			name = "home screen graphic";
 			sourceTree = "<group>";
 		};
+=======
+>>>>>>> 56ca05f8d4507fc76f1a129c82bb3f3f677c79d3
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -273,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				D315B8001BFE0196002AA9A5 /* 65-Y.png in Resources */,
 				58DC78C71BF66C930063B2CE /* Main.storyboard in Resources */,
 				D315B7FE1BFE0196002AA9A5 /* 55-O.png in Resources */,
@@ -298,6 +311,12 @@
 				D315B8021BFE0196002AA9A5 /* 75-Y.png in Resources */,
 				58DC78C91BF66C930063B2CE /* Images.xcassets in Resources */,
 				D315B7FA1BFE0196002AA9A5 /* 35-LR.png in Resources */,
+=======
+				58DC78C71BF66C930063B2CE /* Main.storyboard in Resources */,
+				5892A22A1BFD3DC100051322 /* alarm-clock-sound.caf in Resources */,
+				58DC78CC1BF66C930063B2CE /* LaunchScreen.xib in Resources */,
+				58DC78C91BF66C930063B2CE /* Images.xcassets in Resources */,
+>>>>>>> 56ca05f8d4507fc76f1a129c82bb3f3f677c79d3
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,11 @@
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *sleepTimePicker;
 
+<<<<<<< HEAD
+=======
+@property (weak, nonatomic) IBOutlet UILabel *label1;
+
+>>>>>>> 56ca05f8d4507fc76f1a129c82bb3f3f677c79d3
 @property (weak, nonatomic) IBOutlet UIButton *sleepTimeButton;
 @property (weak, nonatomic) IBOutlet UIButton *wakeTimeButton;
 
@@ -27,6 +32,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *sleepNowButton;
 
+<<<<<<< HEAD
 // all graphics for main
 @property (weak, nonatomic) IBOutlet UIImageView *zero;
 @property (weak, nonatomic) IBOutlet UIImageView *five;
@@ -55,4 +61,6 @@
 
 
 
+=======
+>>>>>>> 56ca05f8d4507fc76f1a129c82bb3f3f677c79d3
 @end

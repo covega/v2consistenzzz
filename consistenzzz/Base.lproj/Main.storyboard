@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yux-7X-IAi">
     <dependencies>
         <deployment identifier="iOS"/>
@@ -30,6 +31,39 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7PB-8M-hzs">
                                 <rect key="frame" x="20" y="160" width="46" height="30"/>
                                 <animations/>
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBl-2K-Ey0">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Sleep">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="17" y="59" width="41" height="26"/>
+                                </variation>
+                                <connections>
+                                    <action selector="displaySleepTime:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u74-7c-emU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1D3-0W-Ib3">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+>>>>>>> 56ca05f8d4507fc76f1a129c82bb3f3f677c79d3
                                 <state key="normal" title="Wake">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -37,6 +71,7 @@
                                     <rect key="frame" x="17" y="135" width="38" height="30"/>
                                 </variation>
                                 <connections>
+<<<<<<< HEAD
                                     <action selector="displayWakeTime:" destination="yux-7X-IAi" eventType="touchUpInside" id="r3B-eW-ZtA"/>
                                 </connections>
                             </button>
@@ -67,6 +102,43 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sleep" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvQ-tA-R9B">
                                 <rect key="frame" x="20" y="224" width="42" height="21"/>
                                 <animations/>
+=======
+                                    <action selector="displayWakeTime:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j8K-7b-Zz6"/>
+                                </connections>
+                            </button>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZbG-6f-JLj">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Settings" id="NZl-DJ-5u8"/>
+                                    <tabBarItem title="Goals" id="TjJ-Yj-Cmu"/>
+                                    <tabBarItem title="Alarm" id="f9Y-df-CB0"/>
+                                </items>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="551" width="400" height="49"/>
+                                </variation>
+                            </tabBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Set" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTX-yI-V45">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="206" width="112" height="31"/>
+                                </variation>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="JxX-9f-zkZ">
+                                <rect key="frame" x="-160" y="-81" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="469524466.95727199">
+                                    <!--2015-11-18 07:27:46 +0000-->
+                                </date>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="81" y="60" width="248" height="100"/>
+                                </variation>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEY-Ki-qOb">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+>>>>>>> 56ca05f8d4507fc76f1a129c82bb3f3f677c79d3
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -74,6 +146,7 @@
                                     <rect key="frame" x="12" y="196" width="42" height="22"/>
                                 </variation>
                             </label>
+<<<<<<< HEAD
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZRX-GI-RzE">
                                 <rect key="frame" x="0.0" y="687" width="414" height="49"/>
                                 <animations/>
@@ -90,6 +163,10 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wake" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wM-KY-0N1">
                                 <rect key="frame" x="20" y="224" width="42" height="21"/>
                                 <animations/>
+=======
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wake" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27E-1G-dIa">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+>>>>>>> 56ca05f8d4507fc76f1a129c82bb3f3f677c79d3
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -97,6 +174,7 @@
                                     <rect key="frame" x="13" y="196" width="42" height="22"/>
                                 </variation>
                             </label>
+<<<<<<< HEAD
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Lq-fz-CaD">
                                 <rect key="frame" x="252" y="647" width="42" height="21"/>
                                 <animations/>
@@ -110,10 +188,37 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="mins" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jv-ji-5Od">
                                 <rect key="frame" x="278" y="647" width="42" height="21"/>
                                 <animations/>
+=======
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTr-18-TL3">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Set">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="86" width="58" height="48"/>
+                                </variation>
+                                <connections>
+                                    <action selector="setNotificationTime:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RVs-AR-ylV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Set" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjO-A1-j7F">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="17" y="206" width="112" height="31"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bedtime in" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7T-Tj-2bD">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+>>>>>>> 56ca05f8d4507fc76f1a129c82bb3f3f677c79d3
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
+<<<<<<< HEAD
                                     <rect key="frame" x="230" y="504" width="48" height="21"/>
                                 </variation>
                             </label>
@@ -143,20 +248,45 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kz2-GO-uYz">
                                 <rect key="frame" x="182" y="647" width="42" height="21"/>
                                 <animations/>
+=======
+                                    <rect key="frame" x="157" y="487" width="86" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPn-Rh-7YI">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="156" y="504" width="48" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUL-cB-fL3">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+>>>>>>> 56ca05f8d4507fc76f1a129c82bb3f3f677c79d3
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+<<<<<<< HEAD
                                     <rect key="frame" x="206" y="504" width="22" height="21"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bedtime in" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huB-By-Cdq">
                                 <rect key="frame" x="95" y="647" width="87" height="21"/>
                                 <animations/>
+=======
+                                    <rect key="frame" x="132" y="504" width="25" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ikg-EC-Mkl">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+>>>>>>> 56ca05f8d4507fc76f1a129c82bb3f3f677c79d3
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
+<<<<<<< HEAD
                                     <rect key="frame" x="157" y="487" width="86" height="21"/>
                                 </variation>
                             </label>
@@ -174,12 +304,30 @@
                                 <rect key="frame" x="95" y="602" width="225" height="37"/>
                                 <animations/>
                                 <state key="normal" title="Sleep Now">
+=======
+                                    <rect key="frame" x="206" y="504" width="22" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mins" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYB-QH-RZU">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="230" y="504" width="48" height="21"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGc-Zu-Xhf">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal">
+>>>>>>> 56ca05f8d4507fc76f1a129c82bb3f3f677c79d3
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="120" y="487" width="158" height="38"/>
                                 </variation>
                                 <connections>
+<<<<<<< HEAD
                                     <action selector="sleepNow:" destination="yux-7X-IAi" eventType="touchUpInside" id="rwf-MO-dHi"/>
                                 </connections>
                             </button>
@@ -334,4 +482,68 @@
         <image name="90-LG.png" width="464" height="252"/>
         <image name="95-DG.png" width="464" height="252"/>
     </resources>
+=======
+                                    <action selector="sleepNow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pcu-c6-LsZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="PBl-2K-Ey0"/>
+                                <exclude reference="1D3-0W-Ib3"/>
+                                <exclude reference="ZbG-6f-JLj"/>
+                                <exclude reference="iTX-yI-V45"/>
+                                <exclude reference="JxX-9f-zkZ"/>
+                                <exclude reference="gEY-Ki-qOb"/>
+                                <exclude reference="27E-1G-dIa"/>
+                                <exclude reference="LTr-18-TL3"/>
+                                <exclude reference="fjO-A1-j7F"/>
+                                <exclude reference="j7T-Tj-2bD"/>
+                                <exclude reference="kPn-Rh-7YI"/>
+                                <exclude reference="vUL-cB-fL3"/>
+                                <exclude reference="Ikg-EC-Mkl"/>
+                                <exclude reference="yYB-QH-RZU"/>
+                                <exclude reference="hGc-Zu-Xhf"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="PBl-2K-Ey0"/>
+                                <include reference="1D3-0W-Ib3"/>
+                                <include reference="ZbG-6f-JLj"/>
+                                <include reference="iTX-yI-V45"/>
+                                <include reference="JxX-9f-zkZ"/>
+                                <include reference="gEY-Ki-qOb"/>
+                                <include reference="27E-1G-dIa"/>
+                                <include reference="LTr-18-TL3"/>
+                                <include reference="fjO-A1-j7F"/>
+                                <include reference="j7T-Tj-2bD"/>
+                                <include reference="kPn-Rh-7YI"/>
+                                <include reference="vUL-cB-fL3"/>
+                                <include reference="Ikg-EC-Mkl"/>
+                                <include reference="yYB-QH-RZU"/>
+                                <include reference="hGc-Zu-Xhf"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="countdownHours" destination="vUL-cB-fL3" id="7Fq-cS-7tD"/>
+                        <outlet property="countdownMinutes" destination="Ikg-EC-Mkl" id="y4j-BH-9e9"/>
+                        <outlet property="sleepNowButton" destination="hGc-Zu-Xhf" id="8Bv-44-gU1"/>
+                        <outlet property="sleepTime" destination="iTX-yI-V45" id="4oy-0o-O76"/>
+                        <outlet property="sleepTimeButton" destination="PBl-2K-Ey0" id="iEd-3S-bJl"/>
+                        <outlet property="sleepTimeLabel" destination="gEY-Ki-qOb" id="FuG-vg-7Dm"/>
+                        <outlet property="sleepTimePicker" destination="JxX-9f-zkZ" id="oFe-cM-0Ta"/>
+                        <outlet property="wakeTime" destination="fjO-A1-j7F" id="29P-Jb-M4T"/>
+                        <outlet property="wakeTimeButton" destination="1D3-0W-Ib3" id="flC-tg-5de"/>
+                        <outlet property="wakeTimeLabel" destination="27E-1G-dIa" id="rd4-RW-aFs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="154.5" y="10"/>
+        </scene>
+    </scenes>
+>>>>>>> 56ca05f8d4507fc76f1a129c82bb3f3f677c79d3
 </document>

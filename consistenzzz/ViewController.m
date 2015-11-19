@@ -65,7 +65,11 @@ NSDate * wakePickerTime;
         NSDate * preBedDate = [sleepPickerTime dateByAddingTimeInterval:-60*30];
         
         preBedAlert.fireDate = preBedDate;
+<<<<<<< HEAD
         preBedAlert.alertBody = @"Less than 30 mins until bedtime!";
+=======
+        preBedAlert.alertBody = @"30 mins until bedtime!";
+>>>>>>> 56ca05f8d4507fc76f1a129c82bb3f3f677c79d3
         [[UIApplication sharedApplication] scheduleLocalNotification: preBedAlert];
         
     } else if (_wakeTimeButton.enabled == NO){
@@ -157,9 +161,17 @@ NSDate * wakePickerTime;
 }
 
 - (IBAction)sleepNow:(id)sender {
+<<<<<<< HEAD
     NSDate * now = [NSDate date];
     _sleepTimePicker.date = now;
     sleepPickerTime = now;
+=======
+    if(_sleepTimeButton.enabled == NO){
+        NSDate * now = [NSDate date];
+        _sleepTimePicker.date = now;
+        sleepPickerTime = now;
+    }
+>>>>>>> 56ca05f8d4507fc76f1a129c82bb3f3f677c79d3
 }
 
 - (void)viewDidLoad {
@@ -178,6 +190,7 @@ NSDate * wakePickerTime;
     
     [self updateBedtimeCountdown];
     // Do any additional setup after loading the view, typically from a nib.
+<<<<<<< HEAD
     
     // start home screen graphics
     _zero.hidden = YES; // hide all graphics
@@ -271,6 +284,8 @@ NSDate * wakePickerTime;
             break;
     }
     // end home graphics
+=======
+>>>>>>> 56ca05f8d4507fc76f1a129c82bb3f3f677c79d3
 }
 
 - (void)didReceiveMemoryWarning {
@@ -279,4 +294,8 @@ NSDate * wakePickerTime;
 }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 56ca05f8d4507fc76f1a129c82bb3f3f677c79d3
 @end
