@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4630FFCB1BFDCBC600FF1C2F /* home.m in Sources */ = {isa = PBXBuildFile; fileRef = 4630FFCA1BFDCBC600FF1C2F /* home.m */; };
 		58DC78BE1BF66C930063B2CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DC78BD1BF66C930063B2CE /* main.m */; };
 		58DC78C11BF66C930063B2CE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DC78C01BF66C930063B2CE /* AppDelegate.m */; };
 		58DC78C41BF66C930063B2CE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DC78C31BF66C930063B2CE /* ViewController.m */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4630FFC91BFDCBC600FF1C2F /* home.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = home.h; sourceTree = "<group>"; };
+		4630FFCA1BFDCBC600FF1C2F /* home.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = home.m; sourceTree = "<group>"; };
 		58DC78B81BF66C930063B2CE /* consistenzzz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = consistenzzz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58DC78BC1BF66C930063B2CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58DC78BD1BF66C930063B2CE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -87,6 +90,8 @@
 				58DC78C31BF66C930063B2CE /* ViewController.m */,
 				58DC78C51BF66C930063B2CE /* Main.storyboard */,
 				58DC78C81BF66C930063B2CE /* Images.xcassets */,
+				4630FFC91BFDCBC600FF1C2F /* home.h */,
+				4630FFCA1BFDCBC600FF1C2F /* home.m */,
 				58DC78CA1BF66C930063B2CE /* LaunchScreen.xib */,
 				58DC78BB1BF66C930063B2CE /* Supporting Files */,
 			);
@@ -219,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4630FFCB1BFDCBC600FF1C2F /* home.m in Sources */,
 				58DC78C41BF66C930063B2CE /* ViewController.m in Sources */,
 				58DC78C11BF66C930063B2CE /* AppDelegate.m in Sources */,
 				58DC78BE1BF66C930063B2CE /* main.m in Sources */,

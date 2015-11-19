@@ -25,19 +25,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *debtLabel;
 @property (weak, nonatomic) IBOutlet UILabel *percentLabel;
 
-//home screen
-@property (weak, nonatomic) IBOutlet UIDatePicker *sleepTimePicker;
-
-@property (weak, nonatomic) IBOutlet UILabel *label1;
-
-@property (weak, nonatomic) IBOutlet UIButton *sleepTimeButton;
-@property (weak, nonatomic) IBOutlet UIButton *wakeTimeButton;
-
-@property (weak, nonatomic) IBOutlet UILabel *sleepTimeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *wakeTimeLabel;
-
-@property (weak, nonatomic) IBOutlet UILabel *sleepTime;
-@property (weak, nonatomic) IBOutlet UILabel *wakeTime;
 
 
 @end
