@@ -31,6 +31,7 @@ NSDate * wakePickerTime;
     
     NSInteger hour = [components hour];
     NSInteger minute = [components minute];
+    //12 hour time, not 24 hour bs
     if(hour > 12){
         hour = hour-12;
     }
@@ -39,6 +40,7 @@ NSDate * wakePickerTime;
     NSString *minuteString = [NSString stringWithFormat:@"%ld", (long)minute];
     NSUInteger length = [minuteString length];
     
+    //make sure it is human readable and has 0s
     if(length < 2){
         NSString *zero = @"0";
         minuteString = [zero stringByAppendingString:minuteString];
@@ -53,10 +55,22 @@ NSDate * wakePickerTime;
         
         localNotification.fireDate = sleepPickerTime;
         localNotification.alertBody = @"Sleep time";
+        
+        //schedule alert
+        //NATE ADDED CODE HERE
+        UILocalNotification* preBedAlert = [[UILocalNotification alloc] init];
+        preBedAlert.alertAction = @"Go To App";
+        preBedAlert.timeZone = [NSTimeZone defaultTimeZone];
+        
+        NSDate * preBedDate = [sleepPickerTime dateByAddingTimeInterval:-60*30];
+        
+        preBedAlert.fireDate = preBedDate;
+        preBedAlert.alertBody = @"30 mins until bedtime!";
+        [[UIApplication sharedApplication] scheduleLocalNotification: preBedAlert];
+        
     } else if (_wakeTimeButton.enabled == NO){
         //set wake time label to be this value, keep hidden
         wakePickerTime = _sleepTimePicker.date;
-        
         
         _wakeTime.text = [hourString stringByAppendingString:minuteString];
         _wakeTime.hidden = YES;
@@ -80,13 +94,9 @@ NSDate * wakePickerTime;
         _sleepTime.hidden = YES;
         _sleepTimeLabel.hidden = YES;
         
-        //NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        
-
         if(sleepPickerTime){
             [_sleepTimePicker setDate:sleepPickerTime];
         }
-        
         
     }
     _sleepTimeButton.enabled = NO;
@@ -110,8 +120,53 @@ NSDate * wakePickerTime;
     _wakeTimeButton.enabled = NO;
 }
 
+
+- (void) updateBedtimeCountdown {
+    //NSDate Time - currentTime
+    unsigned int unitFlags = NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitDay | NSCalendarUnitMonth;
+    NSCalendar * calendar = [NSCalendar currentCalendar];
+    NSDate * now = [NSDate date];
+    if(sleepPickerTime){
+        NSDateComponents *conversionInfo = [calendar components:unitFlags   fromDate:now  toDate:sleepPickerTime  options:0];
+    
+        long hours = [conversionInfo hour];
+        long minutes = [conversionInfo minute] + 1;
+    
+        NSString *hourString = [NSString stringWithFormat:@"%ld", hours];
+    
+        NSString *minuteString = [NSString stringWithFormat:@"%ld", minutes];
+        NSUInteger length = [minuteString length];
+        //make sure it is human readable and has 0s
+        if(length < 2){
+            NSString *zero = @"0";
+            minuteString = [zero stringByAppendingString:minuteString];
+        }
+    
+        length = [hourString length];
+        if(length < 2){
+            NSString *zero = @"0";
+            hourString = [zero stringByAppendingString:hourString];
+        }
+    
+        _countdownHours.text = hourString;
+        _countdownMinutes.text = minuteString;
+    }
+    
+    [self performSelector:@selector(updateBedtimeCountdown) withObject:self afterDelay:1.0];
+    
+}
+
+- (IBAction)sleepNow:(id)sender {
+    if(_sleepTimeButton.enabled == NO){
+        NSDate * now = [NSDate date];
+        _sleepTimePicker.date = now;
+        sleepPickerTime = now;
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound|UIUserNotificationTypeBadge
                                                                                                               categories:nil]];
@@ -123,6 +178,7 @@ NSDate * wakePickerTime;
     _wakeTime.hidden = YES;
     _sleepTimeButton.enabled = NO;
     
+    [self updateBedtimeCountdown];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
