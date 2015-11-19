@@ -1,20 +1,14 @@
 //
-//  ViewController.m
+//  ViewController+home.m
 //  consistenzzz
 //
-//  Created by John Nathaniel Morgan on 11/13/15.
-//  Copyright (c) 2015 the dream team. All rights reserved.
+//  Created by Nate Lohn on 11/19/15.
+//  Copyright © 2015 the dream team. All rights reserved.
 //
 
-#import "ViewController.h"
-#import <objc/runtime.h>
+#import "ViewController+home.h"
 
-@interface ViewController ()
-
-@end
-
-@implementation ViewController
-
+@implementation ViewController (home)
 NSDate * sleepPickerTime;
 NSDate * wakePickerTime;
 
@@ -46,7 +40,7 @@ NSDate * wakePickerTime;
             NSString *zero = @"0";
             minuteString = [zero stringByAppendingString:minuteString];
         }
-
+        
         _wakeTime.text = [hourString stringByAppendingString:minuteString];
         
         if(sleepPickerTime){
@@ -75,7 +69,7 @@ NSDate * wakePickerTime;
         _wakeTimeLabel.hidden = YES;
         
         sleepPickerTime = _sleepTimePicker.date;
-      
+        
         NSCalendar * calendar = [NSCalendar currentCalendar];
         NSDateComponents *components = [calendar components:(NSCalendarUnitHour| NSCalendarUnitMinute) fromDate: sleepPickerTime];
         
@@ -85,7 +79,7 @@ NSDate * wakePickerTime;
             hour = hour-12;
         }
         NSString *hourString = [NSString stringWithFormat:@"%ld:", (long)hour];
-
+        
         NSString *minuteString = [NSString stringWithFormat:@"%ld", (long)minute];
         NSUInteger length = [minuteString length];
         if(length < 2){
@@ -97,7 +91,7 @@ NSDate * wakePickerTime;
             [_sleepTimePicker setDate:wakePickerTime];
         }
         
-
+        
         UILocalNotification* localNotification = [[UILocalNotification alloc] init];
         localNotification.fireDate = sleepPickerTime;
         localNotification.alertBody = @"Sleep time";
@@ -108,59 +102,6 @@ NSDate * wakePickerTime;
         
     }
     _wakeTimeButton.enabled = NO;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
-        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound|UIUserNotificationTypeBadge
-                                                                                                              categories:nil]];
-    }
-    //__block UITextField *localTextField;
-    _wakeTimeButton.enabled = YES;
-    _wakeTimeLabel.hidden = NO;
-    _sleepTimeLabel.hidden = YES;
-    _wakeTime.hidden = YES;
-    _sleepTimeButton.enabled = NO;
-    
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-//set up
-- (IBAction)wantPressed:(id)sender {
-    int wantHours = self.wantStepper.value / 1;
-    int wantMin = (self.wantStepper.value - wantHours) * 60;
-    self.wantLabel.text = [NSString stringWithFormat:@"%d hrs %d min", wantHours, wantMin];
-    
-}
-
-
-- (IBAction)getPressed:(id)sender {
-    int getHours = self.getStepper.value;
-    int getMin = (self.getStepper.value - getHours) * 60;
-    self.getLabel.text = [NSString stringWithFormat:@"%d hrs %d min", getHours, getMin];
-}
-
-- (IBAction)setUpPushed:(id)sender {
-    float minSleep = 0;
-    float days = 14;
-    float want = self.wantStepper.value;
-    float get = self.getStepper.value;
-    float debt = days * (get - ((24 - get) * (want/(24 - want))));
-    float maxSleepDebt = days * (minSleep - ((24 - minSleep) * (want/(24 - want))));
-    float percentage = 1 - (debt/maxSleepDebt);
-    int debtHours = (debt / 1);
-    int debtMins = ((debt - debtHours) * 60) / 1;
-    int percentDisplay = (percentage * 100) / 1;
-    NSLog(@"Debt = %f", debt);
-    self.debtLabel.text = [NSString stringWithFormat:@"Debt = %d hrs %d min", -debtHours, -debtMins];
-    self.percentLabel.text = [NSString stringWithFormat:@"%d %%", percentDisplay];
 }
 
 
