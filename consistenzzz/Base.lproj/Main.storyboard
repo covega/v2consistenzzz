@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="s1j-Ft-VVv">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tcY-AC-Pew">
+            <objects>
+                <viewController id="s1j-Ft-VVv" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5HK-gD-99n"/>
+                        <viewControllerLayoutGuide type="bottom" id="rPg-jM-WT1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4rT-xn-hKn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="100-DG.png" translatesAutoresizingMaskIntoConstraints="NO" id="ls6-d8-fuK">
+                                <rect key="frame" x="20" y="299" width="375" height="201"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="95-DG.png" translatesAutoresizingMaskIntoConstraints="NO" id="W9z-Hc-6Iy">
+                                <rect key="frame" x="20" y="299" width="375" height="201"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="90-LG.png" translatesAutoresizingMaskIntoConstraints="NO" id="Z5Q-xC-gW5">
+                                <rect key="frame" x="20" y="299" width="375" height="201"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="85-LG.png" translatesAutoresizingMaskIntoConstraints="NO" id="k6c-Zp-PdL">
+                                <rect key="frame" x="20" y="299" width="375" height="201"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="80-LG.png" translatesAutoresizingMaskIntoConstraints="NO" id="q3T-k7-3rk">
+                                <rect key="frame" x="20" y="299" width="375" height="201"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="75-Y.png" translatesAutoresizingMaskIntoConstraints="NO" id="tE8-Mg-430">
+                                <rect key="frame" x="20" y="299" width="375" height="201"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="70-Y.png" translatesAutoresizingMaskIntoConstraints="NO" id="cIO-NM-pGq">
+                                <rect key="frame" x="20" y="299" width="375" height="201"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="65-Y.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gc3-L3-fuu">
+                                <rect key="frame" x="20" y="299" width="375" height="201"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="60-O.png" translatesAutoresizingMaskIntoConstraints="NO" id="8JH-Pu-9ia">
+                                <rect key="frame" x="20" y="299" width="375" height="201"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="55-O.png" translatesAutoresizingMaskIntoConstraints="NO" id="17Y-CE-LW4">
+                                <rect key="frame" x="20" y="299" width="375" height="201"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="50-O.png" translatesAutoresizingMaskIntoConstraints="NO" id="VyJ-c2-Q2v">
+                                <rect key="frame" x="20" y="299" width="375" height="201"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="45-LR.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cvh-PY-8G9">
+                                <rect key="frame" x="20" y="299" width="375" height="201"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="40-LR.png" translatesAutoresizingMaskIntoConstraints="NO" id="FVF-UN-mWe">
+                                <rect key="frame" x="20" y="299" width="375" height="201"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="35-LR.png" translatesAutoresizingMaskIntoConstraints="NO" id="NjK-VU-FvV">
+                                <rect key="frame" x="20" y="299" width="375" height="201"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="30-LR.png" translatesAutoresizingMaskIntoConstraints="NO" id="KPT-fJ-co3">
+                                <rect key="frame" x="20" y="299" width="375" height="201"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="25-LR.png" translatesAutoresizingMaskIntoConstraints="NO" id="oAO-Jf-OKu">
+                                <rect key="frame" x="20" y="299" width="375" height="201"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="20-DR.png" translatesAutoresizingMaskIntoConstraints="NO" id="OGx-UJ-TUt">
+                                <rect key="frame" x="20" y="299" width="375" height="201"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="15-DR.png" translatesAutoresizingMaskIntoConstraints="NO" id="hpE-56-GSQ">
+                                <rect key="frame" x="20" y="299" width="375" height="201"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="10-DR.png" translatesAutoresizingMaskIntoConstraints="NO" id="k4M-P5-zdW">
+                                <rect key="frame" x="20" y="299" width="375" height="201"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="5-DR.png" translatesAutoresizingMaskIntoConstraints="NO" id="HAn-II-qCe">
+                                <rect key="frame" x="20" y="299" width="375" height="201"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="0.png" translatesAutoresizingMaskIntoConstraints="NO" id="Bo0-Yj-X95">
+                                <rect key="frame" x="20" y="299" width="375" height="201"/>
+                                <animations/>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="eighty" destination="q3T-k7-3rk" id="r4V-rH-OnI"/>
+                        <outlet property="eightyFive" destination="k6c-Zp-PdL" id="b4W-9k-Au7"/>
+                        <outlet property="fifteen" destination="hpE-56-GSQ" id="9bu-ZG-1xb"/>
+                        <outlet property="fifty" destination="VyJ-c2-Q2v" id="Ocg-Ml-z7h"/>
+                        <outlet property="fiftyFive" destination="17Y-CE-LW4" id="srD-zG-30d"/>
+                        <outlet property="five" destination="HAn-II-qCe" id="O2X-pE-bLI"/>
+                        <outlet property="fourty" destination="FVF-UN-mWe" id="N6A-bC-gUl"/>
+                        <outlet property="fourtyFive" destination="Cvh-PY-8G9" id="KpJ-Wi-hT6"/>
+                        <outlet property="hundred" destination="ls6-d8-fuK" id="8I6-hp-28j"/>
+                        <outlet property="ninty" destination="Z5Q-xC-gW5" id="A5H-lF-hwF"/>
+                        <outlet property="nintyFive" destination="W9z-Hc-6Iy" id="P0F-Bc-Vtx"/>
+                        <outlet property="seventy" destination="cIO-NM-pGq" id="YbM-NR-gKy"/>
+                        <outlet property="seventyFive" destination="tE8-Mg-430" id="Y82-3h-KuY"/>
+                        <outlet property="sixty" destination="8JH-Pu-9ia" id="kd2-zR-6Fl"/>
+                        <outlet property="sixtyFive" destination="Gc3-L3-fuu" id="G0B-gX-8b9"/>
+                        <outlet property="ten" destination="k4M-P5-zdW" id="F1V-yI-fqq"/>
+                        <outlet property="thirty" destination="KPT-fJ-co3" id="6sc-Sa-5Cn"/>
+                        <outlet property="thirtyFive" destination="NjK-VU-FvV" id="t1C-tj-XvU"/>
+                        <outlet property="twenty" destination="OGx-UJ-TUt" id="8LG-HS-mgh"/>
+                        <outlet property="twentyFive" destination="oAO-Jf-OKu" id="yyp-q8-71G"/>
+                        <outlet property="zero" destination="Bo0-Yj-X95" id="1vB-Jg-2lY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VbR-ZM-WOL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-11" y="-346"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="0.png" width="464" height="252"/>
+        <image name="10-DR.png" width="464" height="252"/>
+        <image name="100-DG.png" width="464" height="252"/>
+        <image name="15-DR.png" width="464" height="252"/>
+        <image name="20-DR.png" width="464" height="252"/>
+        <image name="25-LR.png" width="464" height="252"/>
+        <image name="30-LR.png" width="464" height="252"/>
+        <image name="35-LR.png" width="464" height="252"/>
+        <image name="40-LR.png" width="464" height="252"/>
+        <image name="45-LR.png" width="464" height="252"/>
+        <image name="5-DR.png" width="464" height="252"/>
+        <image name="50-O.png" width="464" height="252"/>
+        <image name="55-O.png" width="464" height="252"/>
+        <image name="60-O.png" width="464" height="252"/>
+        <image name="65-Y.png" width="464" height="252"/>
+        <image name="70-Y.png" width="464" height="252"/>
+        <image name="75-Y.png" width="464" height="252"/>
+        <image name="80-LG.png" width="464" height="252"/>
+        <image name="85-LG.png" width="464" height="252"/>
+        <image name="90-LG.png" width="464" height="252"/>
+        <image name="95-DG.png" width="464" height="252"/>
+    </resources>
+</document>
