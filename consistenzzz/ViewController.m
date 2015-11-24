@@ -170,12 +170,7 @@ NSDate * wakePickerTime;
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound|UIUserNotificationTypeBadge
                                                                                                               categories:nil]];
     }
-    //__block UITextField *localTextField;
-    _wakeTimeButton.enabled = YES;
-    _wakeTimeLabel.hidden = NO;
-    _sleepTimeLabel.hidden = YES;
-    _wakeTime.hidden = YES;
-    _sleepTimeButton.enabled = NO;
+
     
     [self updateBedtimeCountdown];
     // Do any additional setup after loading the view, typically from a nib.
