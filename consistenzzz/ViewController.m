@@ -164,6 +164,9 @@ NSDate * wakePickerTime;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _sleepTimePicker.hidden = YES;
+    _setButton.hidden = YES;
+    
     
     
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
@@ -289,4 +292,15 @@ NSDate * wakePickerTime;
 }
 
 
+- (IBAction)timeButtonPushed:(id)sender {
+    _timeButton.hidden = YES;
+    _sleepTimePicker.hidden = NO;
+    _setButton.hidden = NO;
+}
+
+- (IBAction)setButtonPushed:(id)sender {
+    _timeButton.hidden = NO;
+    _sleepTimePicker.hidden = YES;
+    _setButton.hidden = YES;
+}
 @end

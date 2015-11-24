@@ -318,6 +318,9 @@
                                 <state key="normal" title="Set">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="setButtonPushed:" destination="yux-7X-IAi" eventType="touchUpInside" id="Grn-U7-Ht8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USc-FC-73W">
                                 <rect key="frame" x="89" y="168" width="215" height="80"/>
@@ -325,6 +328,9 @@
                                 <state key="normal" title="00:00 AM">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="timeButtonPushed:" destination="yux-7X-IAi" eventType="touchUpInside" id="ziI-d5-k3u"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -383,6 +389,7 @@
                         <outlet property="ninety" destination="5yt-Jg-M7J" id="DW6-Z5-hWa"/>
                         <outlet property="ninetyFive" destination="Ba1-xi-kXi" id="YdR-DM-rUe"/>
                         <outlet property="percentLabel" destination="6tv-yh-kW2" id="sz4-eF-UZd"/>
+                        <outlet property="setButton" destination="wq2-sf-wtl" id="b1D-4x-LwY"/>
                         <outlet property="seventy" destination="R3w-oa-8tl" id="g2U-UC-Ezt"/>
                         <outlet property="seventyFive" destination="948-gc-YxX" id="yVf-7p-qGf"/>
                         <outlet property="sixty" destination="svb-q7-F8a" id="wly-rm-5g8"/>
@@ -393,6 +400,7 @@
                         <outlet property="ten" destination="u8J-Ji-J2f" id="y9G-tm-Kko"/>
                         <outlet property="thirty" destination="Vdf-fF-gVR" id="3aS-pE-2TO"/>
                         <outlet property="thirtyFive" destination="G1R-y4-N4Z" id="WEN-Rr-6pG"/>
+                        <outlet property="timeButton" destination="USc-FC-73W" id="S20-rS-0NB"/>
                         <outlet property="twenty" destination="h0k-nq-ib2" id="VgT-L7-tA5"/>
                         <outlet property="twentyFive" destination="n7c-PO-mOE" id="WKy-jZ-UEU"/>
                         <outlet property="wakeTime" destination="Vf8-H3-2bO" id="3P1-SX-j0m"/>
