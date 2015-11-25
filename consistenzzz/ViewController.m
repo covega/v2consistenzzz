@@ -344,30 +344,6 @@ bool wakeTimeSet = false;
         minuteString = [zero stringByAppendingString:minuteString];
     }
     
-    //sleep ammount logic
-    if (sleepTimeSet && wakeTimeSet){
-        NSDateComponents *sleepComponents = [calendar components:(NSCalendarUnitHour| NSCalendarUnitMinute) fromDate: sleepPickerTime];
-        NSDateComponents *wakeComponents = [calendar components:(NSCalendarUnitHour| NSCalendarUnitMinute) fromDate: wakePickerTime];
-        NSInteger sleepHour = [sleepComponents hour];
-        NSInteger sleepMinute = [sleepComponents minute];
-        NSInteger wakeHour = [wakeComponents hour];
-        NSInteger wakeMinute = [wakeComponents minute];
-        long totalHours = -1;
-        long totalMinutes = -1;
-        if(sleepHour > wakeHour){
-            totalHours = 24 - (wakeHour - sleepHour);
-        } else {
-            totalHours = wakeHour - sleepHour;
-        }
-        if (sleepMinute > wakeMinute) {
-            totalMinutes = 60 - (wakeMinute - sleepMinute);
-            totalHours = totalHours - 1;
-        } else {
-            totalMinutes = wakeMinute - sleepMinute;
-        }
-        _sleepAmountLabel.text = [NSString stringWithFormat:@"%ld hrs and %ld mins of sleep", totalHours,totalMinutes];
-        _sleepAmountLabel.hidden = NO;
-    }
     
     //set stuff
     if(_sleepWakeController.selectedSegmentIndex == 0){
@@ -407,6 +383,31 @@ bool wakeTimeSet = false;
     }
     
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
+    //sleep ammount logic
+    if (sleepTimeSet && wakeTimeSet){
+        NSDateComponents *sleepComponents = [calendar components:(NSCalendarUnitHour| NSCalendarUnitMinute) fromDate: sleepPickerTime];
+        NSDateComponents *wakeComponents = [calendar components:(NSCalendarUnitHour| NSCalendarUnitMinute) fromDate: wakePickerTime];
+        NSInteger sleepHour = [sleepComponents hour];
+        NSInteger sleepMinute = [sleepComponents minute];
+        NSInteger wakeHour = [wakeComponents hour];
+        NSInteger wakeMinute = [wakeComponents minute];
+        long totalHours = -1;
+        long totalMinutes = -1;
+        if(sleepHour >= wakeHour){
+            totalHours = 24 + (wakeHour - sleepHour);
+        } else {
+            totalHours = wakeHour - sleepHour;
+        }
+        if (sleepMinute > wakeMinute) {
+            totalMinutes = 60 + (wakeMinute - sleepMinute);
+            totalHours = totalHours - 1;
+        } else {
+            totalMinutes = wakeMinute - sleepMinute;
+        }
+        _sleepAmountLabel.text = [NSString stringWithFormat:@"%ld hrs and %ld mins of sleep", totalHours,totalMinutes];
+        _sleepAmountLabel.hidden = NO;
+    }
     
     
 }
