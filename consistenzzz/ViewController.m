@@ -409,17 +409,33 @@ bool wakeTimeSet = false;
         _sleepAmountLabel.hidden = NO;
     }
     
-    
+    //Next action text
+    if (!sleepTimeSet) {
+        _sleepWakeController.selectedSegmentIndex = 0;
+        [_timeButton setTitle:@"Set Bed Time"forState:UIControlStateNormal];
+    }
+    if (!wakeTimeSet) {
+        _sleepWakeController.selectedSegmentIndex = 1;
+        [_timeButton setTitle:@"Set Wake Time"forState:UIControlStateNormal];
+    }
 }
 - (IBAction)sleepWakeControllerPushed:(id)sender {
     _timeButton.hidden = NO;
     _sleepTimePicker.hidden = YES;
     _setButton.hidden = YES;
     if (_sleepWakeController.selectedSegmentIndex == 1){
-        [_timeButton setTitle:_wakeTime.text forState:UIControlStateNormal];
+        if(wakeTimeSet){
+            [_timeButton setTitle:_wakeTime.text forState:UIControlStateNormal];
+        } else {
+            [_timeButton setTitle:@"Set Wake Time"forState:UIControlStateNormal];
+        }
     }
     if (_sleepWakeController.selectedSegmentIndex == 0){
-        [_timeButton setTitle:_sleepTime.text forState:UIControlStateNormal];
+        if(sleepTimeSet){
+            [_timeButton setTitle:_sleepTime.text forState:UIControlStateNormal];
+        } else {
+            [_timeButton setTitle:@"Set Bed Time"forState:UIControlStateNormal];
+        }
     }
 
     
