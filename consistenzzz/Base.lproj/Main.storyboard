@@ -397,6 +397,7 @@
                         <outlet property="seventyFive" destination="948-gc-YxX" id="yVf-7p-qGf"/>
                         <outlet property="sixty" destination="svb-q7-F8a" id="wly-rm-5g8"/>
                         <outlet property="sixtyFive" destination="LQB-22-aNh" id="L6j-P0-PVq"/>
+                        <outlet property="sleepAmountLabel" destination="cbx-Hu-Qgv" id="yij-rJ-djv"/>
                         <outlet property="sleepNowButton" destination="4L3-dJ-yjQ" id="gFt-m8-3Tk"/>
                         <outlet property="sleepTime" destination="nFI-xq-hC9" id="sLY-2p-J5B"/>
                         <outlet property="sleepTimePicker" destination="UZo-R0-6Jn" id="DNi-0l-xiu"/>

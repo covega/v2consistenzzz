@@ -169,6 +169,7 @@ bool wakeTimeSet = false;
     [super viewDidLoad];
     _sleepTimePicker.hidden = YES;
     _setButton.hidden = YES;
+    _sleepAmountLabel.hidden = YES;
     
     
     
@@ -301,12 +302,6 @@ bool wakeTimeSet = false;
     _timeButton.hidden = YES;
     _sleepTimePicker.hidden = NO;
     _setButton.hidden = NO;
-    if (sleepTimeSet) {
-        //change time in picker
-    }
-    if (wakeTimeSet) {
-        //change time in picker
-    }
 }
 
 - (IBAction)setButtonPushed:(id)sender {
@@ -314,6 +309,7 @@ bool wakeTimeSet = false;
     _timeButton.hidden = NO;
     _sleepTimePicker.hidden = YES;
     _setButton.hidden = YES;
+    
     
     //Stuff from John's Code
     //--------------------------
@@ -329,11 +325,12 @@ bool wakeTimeSet = false;
     NSInteger minute = [components minute];
     NSString *amORpm = @"AM";
     
-    //12 hour time, not 24 hour bs
+    //12 hour time, not that 24 hour bs
     if(hour > 12){
         amORpm = @"PM";
         hour = hour-12;
     }
+    //removing 0 o'clock
     if (hour == 0) {
         hour = 12;
     }
@@ -345,6 +342,31 @@ bool wakeTimeSet = false;
     if( (long)minute < 10){
         NSString *zero = @"0";
         minuteString = [zero stringByAppendingString:minuteString];
+    }
+    
+    //sleep ammount logic
+    if (sleepTimeSet && wakeTimeSet){
+        NSDateComponents *sleepComponents = [calendar components:(NSCalendarUnitHour| NSCalendarUnitMinute) fromDate: sleepPickerTime];
+        NSDateComponents *wakeComponents = [calendar components:(NSCalendarUnitHour| NSCalendarUnitMinute) fromDate: wakePickerTime];
+        NSInteger sleepHour = [sleepComponents hour];
+        NSInteger sleepMinute = [sleepComponents minute];
+        NSInteger wakeHour = [wakeComponents hour];
+        NSInteger wakeMinute = [wakeComponents minute];
+        long totalHours = -1;
+        long totalMinutes = -1;
+        if(sleepHour > wakeHour){
+            totalHours = 24 - (wakeHour - sleepHour);
+        } else {
+            totalHours = wakeHour - sleepHour;
+        }
+        if (sleepMinute > wakeMinute) {
+            totalMinutes = 60 - (wakeMinute - sleepMinute);
+            totalHours = totalHours - 1;
+        } else {
+            totalMinutes = wakeMinute - sleepMinute;
+        }
+        _sleepAmountLabel.text = [NSString stringWithFormat:@"%ld hrs and %ld mins of sleep", totalHours,totalMinutes];
+        _sleepAmountLabel.hidden = NO;
     }
     
     //set stuff
@@ -393,13 +415,20 @@ bool wakeTimeSet = false;
     _sleepTimePicker.hidden = YES;
     _setButton.hidden = YES;
     if (_sleepWakeController.selectedSegmentIndex == 1){
-       // _timeButton.titleLabel.text = _wakeTime.text;
         [_timeButton setTitle:_wakeTime.text forState:UIControlStateNormal];
-    }else
+    }
     if (_sleepWakeController.selectedSegmentIndex == 0){
-       // _timeButton.titleLabel.text = _sleepTime.text;
         [_timeButton setTitle:_sleepTime.text forState:UIControlStateNormal];
     }
+
+    
+    //We need to get it so that it shows the proper time in the picker
+//    if (sleepTimeSet) {
+//        [_sleepTimePicker setDate:sleepPickerTime];
+//    }
+//    if (wakeTimeSet) {
+//        [_sleepTimePicker setDate:wakePickerTime];
+//    }
 
 }
 @end

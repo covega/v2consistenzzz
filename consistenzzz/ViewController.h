@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *sleepWakeController;
 - (IBAction)sleepWakeControllerPushed:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *sleepAmountLabel;
+
 
 @property (weak, nonatomic) IBOutlet UIButton *sleepTimeButton;
 @property (weak, nonatomic) IBOutlet UIButton *wakeTimeButton;
