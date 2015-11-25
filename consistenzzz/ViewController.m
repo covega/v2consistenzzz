@@ -17,6 +17,8 @@
 
 NSDate * sleepPickerTime;
 NSDate * wakePickerTime;
+bool sleepTimeSet = false;
+bool wakeTimeSet = false;
 
 - (IBAction)setNotificationTime:(id)sender {
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
@@ -45,6 +47,7 @@ NSDate * wakePickerTime;
         NSString *zero = @"0";
         minuteString = [zero stringByAppendingString:minuteString];
     }
+    
     
     //set stuff
     if(_sleepTimeButton.enabled == NO){
@@ -166,6 +169,7 @@ NSDate * wakePickerTime;
     [super viewDidLoad];
     _sleepTimePicker.hidden = YES;
     _setButton.hidden = YES;
+    
     
     
     
@@ -293,14 +297,109 @@ NSDate * wakePickerTime;
 
 
 - (IBAction)timeButtonPushed:(id)sender {
+    //toggle
     _timeButton.hidden = YES;
     _sleepTimePicker.hidden = NO;
     _setButton.hidden = NO;
+    if (sleepTimeSet) {
+        //change time in picker
+    }
+    if (wakeTimeSet) {
+        //change time in picker
+    }
 }
 
 - (IBAction)setButtonPushed:(id)sender {
+    //toggle
     _timeButton.hidden = NO;
     _sleepTimePicker.hidden = YES;
     _setButton.hidden = YES;
+    
+    //Stuff from John's Code
+    //--------------------------
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.alertAction = @"Go To App";
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    
+    //get picker time
+    NSCalendar * calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitHour| NSCalendarUnitMinute) fromDate: _sleepTimePicker.date];
+    
+    NSInteger hour = [components hour];
+    NSInteger minute = [components minute];
+    NSString *amORpm = @"AM";
+    
+    //12 hour time, not 24 hour bs
+    if(hour > 12){
+        amORpm = @"PM";
+        hour = hour-12;
+    }
+    if (hour == 0) {
+        hour = 12;
+    }
+    NSString *hourString = [NSString stringWithFormat:@"%ld:", (long)hour];
+    NSString *minuteString = [NSString stringWithFormat:@"%ld ", (long)minute];
+    
+    
+    //make sure it is human readable and has 0s
+    if( (long)minute < 10){
+        NSString *zero = @"0";
+        minuteString = [zero stringByAppendingString:minuteString];
+    }
+    
+    //set stuff
+    if(_sleepWakeController.selectedSegmentIndex == 0){
+        sleepTimeSet = true;
+        //set sleepTime to be label to be this value, keep hidden
+        sleepPickerTime = _sleepTimePicker.date;
+        minuteString = [minuteString stringByAppendingString:amORpm]; //add am/pm to time label
+        _sleepTime.text = [hourString stringByAppendingString:minuteString];
+        [_timeButton setTitle:_sleepTime.text forState:UIControlStateNormal];
+        
+        localNotification.fireDate = sleepPickerTime;
+        localNotification.alertBody = @"Sleep time";
+        
+        //schedule alert
+        UILocalNotification* preBedAlert = [[UILocalNotification alloc] init];
+        preBedAlert.alertAction = @"Go To App";
+        preBedAlert.timeZone = [NSTimeZone defaultTimeZone];
+        
+        NSDate * preBedDate = [sleepPickerTime dateByAddingTimeInterval:-60*30];
+        
+        preBedAlert.fireDate = preBedDate;
+        preBedAlert.alertBody = @"Less than 30 mins until bedtime!";
+        [[UIApplication sharedApplication] scheduleLocalNotification: preBedAlert];
+        
+    } else if (_sleepWakeController.selectedSegmentIndex == 1){
+        wakeTimeSet = true;
+        //set wake time label to be this value, keep hidden
+        wakePickerTime = _sleepTimePicker.date;
+        
+        minuteString = [minuteString stringByAppendingString:amORpm]; //add am/pm to time label
+        _wakeTime.text = [hourString stringByAppendingString:minuteString];
+        [_timeButton setTitle:_wakeTime.text forState:UIControlStateNormal];
+        
+        localNotification.fireDate = wakePickerTime;
+        localNotification.alertBody = @"Wake Up Time!";
+        localNotification.soundName = @"alarm-clock-sound.caf";
+    }
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
+    
+}
+- (IBAction)sleepWakeControllerPushed:(id)sender {
+    _timeButton.hidden = NO;
+    _sleepTimePicker.hidden = YES;
+    _setButton.hidden = YES;
+    if (_sleepWakeController.selectedSegmentIndex == 1){
+       // _timeButton.titleLabel.text = _wakeTime.text;
+        [_timeButton setTitle:_wakeTime.text forState:UIControlStateNormal];
+    }else
+    if (_sleepWakeController.selectedSegmentIndex == 0){
+       // _timeButton.titleLabel.text = _sleepTime.text;
+        [_timeButton setTitle:_sleepTime.text forState:UIControlStateNormal];
+    }
+
 }
 @end

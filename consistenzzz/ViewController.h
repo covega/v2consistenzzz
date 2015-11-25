@@ -17,6 +17,10 @@
 - (IBAction)setButtonPushed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *setButton;
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *sleepWakeController;
+- (IBAction)sleepWakeControllerPushed:(id)sender;
+
+
 @property (weak, nonatomic) IBOutlet UIButton *sleepTimeButton;
 @property (weak, nonatomic) IBOutlet UIButton *wakeTimeButton;
 
