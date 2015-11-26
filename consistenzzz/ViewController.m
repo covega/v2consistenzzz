@@ -19,6 +19,8 @@ NSDate * sleepPickerTime;
 NSDate * wakePickerTime;
 bool sleepTimeSet = false;
 bool wakeTimeSet = false;
+int IMAGE_COUNT = 20;
+
 
 - (IBAction)setNotificationTime:(id)sender {
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
@@ -166,8 +168,25 @@ bool wakeTimeSet = false;
 }
 
 - (void)viewDidLoad {
+//    NSMutableArray *imageArray = [[NSMutableArray alloc] initWithCapacity:IMAGE_COUNT];
+//    
+//    //build array of images, cycling through image names
+//    int increment = 5;
+//    for(int i = 0; i < IMAGE_COUNT; i++)
+//        
+//        [imageArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"%d.png", i]]];
+//    
+//    //another short example:
+//    for (int c=0;c<300;c++)
+//    {
+//        NSString *imageName = [NSString stringWithFormat:@"name%d.png", c];
+//        [UIImage imageNamed: imageName];
+//    }
+    
+    
     [super viewDidLoad];
     _sleepTimePicker.hidden = YES;
+    _wakeTimePicker.hidden = YES;
     _setButton.hidden = YES;
     _sleepAmountLabel.hidden = YES;
     
@@ -300,14 +319,22 @@ bool wakeTimeSet = false;
 - (IBAction)timeButtonPushed:(id)sender {
     //toggle
     _timeButton.hidden = YES;
-    _sleepTimePicker.hidden = NO;
     _setButton.hidden = NO;
+    if(_sleepWakeController.selectedSegmentIndex == 0){
+        _sleepTimePicker.hidden = NO;
+    } else {
+        _wakeTimePicker.hidden = NO;
+    }
+
 }
 
+//this still has the notification stuff in it.. not sure if it needs to
 - (IBAction)setButtonPushed:(id)sender {
+    NSLog(@"Set pushed!");
     //toggle
     _timeButton.hidden = NO;
     _sleepTimePicker.hidden = YES;
+    _wakeTimePicker.hidden = YES;
     _setButton.hidden = YES;
     
     
@@ -319,8 +346,12 @@ bool wakeTimeSet = false;
     
     //get picker time
     NSCalendar * calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:(NSCalendarUnitHour| NSCalendarUnitMinute) fromDate: _sleepTimePicker.date];
-    
+    NSDateComponents *components;
+    if(_sleepWakeController.selectedSegmentIndex == 0){
+        components = [calendar components:(NSCalendarUnitHour| NSCalendarUnitMinute) fromDate: _sleepTimePicker.date];
+    } else {
+        components = [calendar components:(NSCalendarUnitHour| NSCalendarUnitMinute) fromDate: _wakeTimePicker.date];
+    }
     NSInteger hour = [components hour];
     NSInteger minute = [components minute];
     NSString *amORpm = @"AM";
@@ -371,7 +402,7 @@ bool wakeTimeSet = false;
     } else if (_sleepWakeController.selectedSegmentIndex == 1){
         wakeTimeSet = true;
         //set wake time label to be this value, keep hidden
-        wakePickerTime = _sleepTimePicker.date;
+        wakePickerTime = _wakeTimePicker.date;
         
         minuteString = [minuteString stringByAppendingString:amORpm]; //add am/pm to time label
         _wakeTime.text = [hourString stringByAppendingString:minuteString];
@@ -422,6 +453,7 @@ bool wakeTimeSet = false;
 - (IBAction)sleepWakeControllerPushed:(id)sender {
     _timeButton.hidden = NO;
     _sleepTimePicker.hidden = YES;
+    _wakeTimePicker.hidden = YES;
     _setButton.hidden = YES;
     if (_sleepWakeController.selectedSegmentIndex == 1){
         if(wakeTimeSet){

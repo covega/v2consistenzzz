@@ -12,6 +12,7 @@
 @interface ViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *sleepTimePicker;
+@property (weak, nonatomic) IBOutlet UIDatePicker *wakeTimePicker;
 @property (weak, nonatomic) IBOutlet UIButton *timeButton;
 - (IBAction)timeButtonPushed:(id)sender;
 - (IBAction)setButtonPushed:(id)sender;
