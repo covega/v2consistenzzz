@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <objc/runtime.h>
 
+
 @interface ViewController ()
 
 @end
@@ -19,7 +20,9 @@ NSDate * sleepPickerTime;
 NSDate * wakePickerTime;
 bool sleepTimeSet = false;
 bool wakeTimeSet = false;
-int IMAGE_COUNT = 20;
+int IMAGE_COUNT = 21;
+int percentDisplay;
+
 
 
 - (IBAction)setNotificationTime:(id)sender {
@@ -168,29 +171,11 @@ int IMAGE_COUNT = 20;
 }
 
 - (void)viewDidLoad {
-//    NSMutableArray *imageArray = [[NSMutableArray alloc] initWithCapacity:IMAGE_COUNT];
-//    
-//    //build array of images, cycling through image names
-//    int increment = 5;
-//    for(int i = 0; i < IMAGE_COUNT; i++)
-//        
-//        [imageArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"%d.png", i]]];
-//    
-//    //another short example:
-//    for (int c=0;c<300;c++)
-//    {
-//        NSString *imageName = [NSString stringWithFormat:@"name%d.png", c];
-//        [UIImage imageNamed: imageName];
-//    }
-    
-    
     [super viewDidLoad];
     _sleepTimePicker.hidden = YES;
     _wakeTimePicker.hidden = YES;
     _setButton.hidden = YES;
     _sleepAmountLabel.hidden = YES;
-    
-    
     
     
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
@@ -202,28 +187,8 @@ int IMAGE_COUNT = 20;
     [self updateBedtimeCountdown];
     // Do any additional setup after loading the view, typically from a nib.
     
-    // start home screen graphics
-    _zero.hidden = YES; // hide all graphics
-    _five.hidden = YES;
-    _ten.hidden = YES;
-    _fifteen.hidden = YES;
-    _twenty.hidden = YES;
-    _twentyFive.hidden = YES;
-    _thirty.hidden = YES;
-    _thirtyFive.hidden = YES;
-    _fourty.hidden = YES;
-    _fourtyFive.hidden = YES;
-    _fifty.hidden = YES;
-    _fiftyFive.hidden = YES;
-    _sixty.hidden = YES;
-    _sixtyFive.hidden = YES;
-    _seventy.hidden = YES;
-    _seventyFive.hidden = YES;
-    _eighty.hidden = YES;
-    _eightyFive.hidden = YES;
-    _ninety.hidden = YES;
-    _ninetyFive.hidden = YES;
-    _hundred.hidden = YES;
+    
+
     
     
     //sleep debt/percentage logic
@@ -236,79 +201,28 @@ int IMAGE_COUNT = 20;
     float percentage = 1 - (debt/maxSleepDebt);
     int debtHours = (debt / 1);
     int debtMins = ((debt - debtHours) * 60) / 1;
-    int percentDisplay = (percentage * 100) / 1;
+    percentDisplay = (percentage * 100) / 1;
     self.debtLabel.text = [NSString stringWithFormat:@"Sleep Debt = %d hrs %d min", -debtHours, -debtMins];
     self.percentLabel.text = [NSString stringWithFormat:@"Functioning at %d%%", percentDisplay];
-    
-    int screen = ((100 * percentage) / 5);
-    
-    switch (screen) { // show one graphic
-        case 0:
-            _zero.hidden = NO;
-            break;
-        case 1:
-            _five.hidden = NO;
-            break;
-        case 2:
-            _ten.hidden = NO;
-            break;
-        case 3:
-            _fifteen.hidden = NO;
-            break;
-        case 4:
-            _twenty.hidden = NO;
-            break;
-        case 5:
-            _twentyFive.hidden = NO;
-            break;
-        case 6:
-            _thirty.hidden = NO;
-            break;
-        case 7:
-            _thirtyFive.hidden = NO;
-            break;
-        case 8:
-            _fourty.hidden = NO;
-            break;
-        case 9:
-            _fourtyFive.hidden = NO;
-            break;
-        case 10:
-            _fifty.hidden = NO;
-            break;
-        case 11:
-            _fiftyFive.hidden = NO;
-            break;
-        case 12:
-            _sixty.hidden = NO;
-            break;
-        case 13:
-            _sixtyFive.hidden = NO;
-            break;
-        case 14:
-            _seventy.hidden = NO;
-            break;
-        case 15:
-            _seventyFive.hidden = NO;
-            break;
-        case 16:
-            _eighty.hidden = NO;
-            break;
-        case 17:
-            _ninety.hidden = NO;
-            break;
-        case 18:
-            _ninetyFive.hidden = NO;
-            break;
-        case 19:
-            _hundred.hidden = NO;
-            break;
-        default:
-            _hundred.hidden = NO;
-            break;
-    }
-    // end home graphics
+
 }
+- (void)viewDidAppear:(BOOL)animated {
+    NSMutableArray *bedImageArray = [[NSMutableArray alloc] initWithCapacity:IMAGE_COUNT];
+    
+    //build array of images, cycling through image names
+    int increment = 5;
+    for(int i = 0; i < (percentDisplay / 5); i++){
+        [bedImageArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"%d.png", i * increment]]];
+    }
+    
+    self.bedImageView.animationImages = bedImageArray;
+    self.bedImageView.animationRepeatCount = 1;
+    self.bedImageView.animationDuration = 3;
+    self.bedImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d.png", percentDisplay - (percentDisplay % 5)]];
+    [self.bedImageView startAnimating];
+
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
