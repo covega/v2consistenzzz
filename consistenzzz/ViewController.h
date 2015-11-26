@@ -10,6 +10,9 @@
 #import <objc/runtime.h>
 
 @interface ViewController : UIViewController
+{
+
+}
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *sleepTimePicker;
 @property (weak, nonatomic) IBOutlet UIDatePicker *wakeTimePicker;
@@ -41,6 +44,8 @@
 // all graphics for main
 @property (weak, nonatomic) IBOutlet UIImageView *bedImageView;
 
+//countdown
+@property (weak, nonatomic) IBOutlet UILabel *countDownLabel;
 
 
 @property(nonatomic) float want;

@@ -208,6 +208,7 @@
                     </view>
                     <connections>
                         <outlet property="bedImageView" destination="6ck-w8-Ppt" id="3HJ-b8-yN4"/>
+                        <outlet property="countDownLabel" destination="PSq-Sq-65v" id="ecA-lL-61c"/>
                         <outlet property="debtLabel" destination="FDG-s3-thO" id="vba-SH-TW8"/>
                         <outlet property="percentLabel" destination="6tv-yh-kW2" id="sz4-eF-UZd"/>
                         <outlet property="setButton" destination="wq2-sf-wtl" id="b1D-4x-LwY"/>

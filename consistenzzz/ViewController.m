@@ -23,6 +23,29 @@ bool wakeTimeSet = false;
 int IMAGE_COUNT = 21;
 int percentDisplay;
 
+//countdown to bed
+NSTimer *countdownTimer;
+int secondsUntilBedCount;
+
+-(void)timerRun{
+    secondsUntilBedCount = secondsUntilBedCount - 1;
+    int hoursUntilBed = secondsUntilBedCount / 3600;
+    int minutesUntilBed = (secondsUntilBedCount - (hoursUntilBed * 3600)) / 60;
+    int secondsUntilBed = secondsUntilBedCount - (minutesUntilBed * 60) - (hoursUntilBed * 3600);
+    
+    _countDownLabel.text = [NSString stringWithFormat:@"Bedtime in %2d hrs %2d mins %2d secs", hoursUntilBed, minutesUntilBed, secondsUntilBed];
+    
+    if (secondsUntilBedCount == 0) {
+        [countdownTimer invalidate];
+        countdownTimer = nil;
+    }
+}
+
+
+
+-(void) setBedtimeTimer {
+    countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerRun) userInfo:nil repeats:YES];
+}
 
 
 - (IBAction)setNotificationTime:(id)sender {
@@ -176,6 +199,9 @@ int percentDisplay;
     _wakeTimePicker.hidden = YES;
     _setButton.hidden = YES;
     _sleepAmountLabel.hidden = YES;
+    if (!sleepTimeSet) {
+        _countDownLabel.hidden = YES;
+    }
     
     
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
@@ -183,8 +209,6 @@ int percentDisplay;
                                                                                                               categories:nil]];
     }
 
-    
-    [self updateBedtimeCountdown];
     // Do any additional setup after loading the view, typically from a nib.
     
     
@@ -206,6 +230,8 @@ int percentDisplay;
     self.percentLabel.text = [NSString stringWithFormat:@"Functioning at %d%%", percentDisplay];
 
 }
+
+
 - (void)viewDidAppear:(BOOL)animated {
     NSMutableArray *bedImageArray = [[NSMutableArray alloc] initWithCapacity:IMAGE_COUNT];
     
@@ -289,11 +315,26 @@ int percentDisplay;
         minuteString = [zero stringByAppendingString:minuteString];
     }
     
+    //countdown logic/sleep amount logic
+    NSDate *now = [NSDate date];
+    NSDateComponents *nowComponents = [calendar components:(NSCalendarUnitHour| NSCalendarUnitMinute) fromDate: now];
+    NSDateComponents *sleepComponents = [calendar components:(NSCalendarUnitHour| NSCalendarUnitMinute) fromDate: _sleepTimePicker.date];
+    NSDateComponents *wakeComponents = [calendar components:(NSCalendarUnitHour| NSCalendarUnitMinute) fromDate: _wakeTimePicker.date];
+    NSInteger sleepHour = [sleepComponents hour];
+    NSInteger sleepMinute = [sleepComponents minute];
+    NSInteger wakeHour = [wakeComponents hour];
+    NSInteger wakeMinute = [wakeComponents minute];
+    NSInteger nowHour = [nowComponents hour];
+    NSInteger nowMinute = [nowComponents minute];
+    NSInteger nowSecond = [nowComponents second];
+
+    
+    
     
     //set stuff
     if(_sleepWakeController.selectedSegmentIndex == 0){
         sleepTimeSet = true;
-        //set sleepTime to be label to be this value, keep hidden
+        _countDownLabel.hidden = NO;
         sleepPickerTime = _sleepTimePicker.date;
         minuteString = [minuteString stringByAppendingString:amORpm]; //add am/pm to time label
         _sleepTime.text = [hourString stringByAppendingString:minuteString];
@@ -313,6 +354,26 @@ int percentDisplay;
         preBedAlert.alertBody = @"Less than 30 mins until bedtime!";
         [[UIApplication sharedApplication] scheduleLocalNotification: preBedAlert];
         
+        //countdown
+        long totalHoursUntilBed;
+        long totalMinutesUntilBed;
+        60 - nowSecond;
+        if(nowHour >= sleepHour){
+            totalHoursUntilBed = 24 + (sleepHour - nowHour);
+        } else {
+            totalHoursUntilBed = sleepHour - nowHour;
+        }
+        if (nowMinute > sleepMinute) {
+            totalMinutesUntilBed = 60 + (sleepMinute - nowMinute) - 1;
+            totalHoursUntilBed = totalHoursUntilBed - 1;
+        } else {
+            totalMinutesUntilBed = sleepMinute - nowMinute - 1;
+        }
+        secondsUntilBedCount = (totalHoursUntilBed * 3600) + (totalMinutesUntilBed * 60) + (60 - nowSecond);
+        [self setBedtimeTimer];
+        
+        
+        
     } else if (_sleepWakeController.selectedSegmentIndex == 1){
         wakeTimeSet = true;
         //set wake time label to be this value, keep hidden
@@ -331,12 +392,6 @@ int percentDisplay;
     
     //sleep ammount logic
     if (sleepTimeSet && wakeTimeSet){
-        NSDateComponents *sleepComponents = [calendar components:(NSCalendarUnitHour| NSCalendarUnitMinute) fromDate: sleepPickerTime];
-        NSDateComponents *wakeComponents = [calendar components:(NSCalendarUnitHour| NSCalendarUnitMinute) fromDate: wakePickerTime];
-        NSInteger sleepHour = [sleepComponents hour];
-        NSInteger sleepMinute = [sleepComponents minute];
-        NSInteger wakeHour = [wakeComponents hour];
-        NSInteger wakeMinute = [wakeComponents minute];
         long totalHours = -1;
         long totalMinutes = -1;
         if(sleepHour >= wakeHour){
@@ -384,14 +439,6 @@ int percentDisplay;
         }
     }
 
-    
-    //We need to get it so that it shows the proper time in the picker
-//    if (sleepTimeSet) {
-//        [_sleepTimePicker setDate:sleepPickerTime];
-//    }
-//    if (wakeTimeSet) {
-//        [_sleepTimePicker setDate:wakePickerTime];
-//    }
 
 }
 @end
