@@ -236,15 +236,15 @@ int secondsUntilBedCount;
     NSMutableArray *bedImageArray = [[NSMutableArray alloc] initWithCapacity:IMAGE_COUNT];
     
     //build array of images, cycling through image names
-    int increment = 5;
-    for(int i = 0; i < (percentDisplay / 5); i++){
-        [bedImageArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"%d.png", i * increment]]];
+    int increment = 2;
+    for(int i = 0; i < (percentDisplay + 1) / increment; i++){
+        [bedImageArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"two%d.png", (i * increment) + increment]]];
     }
     
     self.bedImageView.animationImages = bedImageArray;
     self.bedImageView.animationRepeatCount = 1;
-    self.bedImageView.animationDuration = 3;
-    self.bedImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d.png", percentDisplay - (percentDisplay % 5)]];
+    self.bedImageView.animationDuration = 2;
+    self.bedImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"two%d.png", percentDisplay - (percentDisplay % increment)]];
     [self.bedImageView startAnimating];
 
 }
