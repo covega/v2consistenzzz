@@ -22,6 +22,7 @@ bool sleepTimeSet = false;
 bool wakeTimeSet = false;
 int percentDisplay;
 int MAX_IMAGE_COUNT = 51;
+bool isSetUp = false;
 
 
 //countdown to bed
@@ -196,7 +197,8 @@ int secondsUntilBedCount;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (true) {
+    if (isSetUp) {
+        _setUpView.hidden = YES;
         _setUpButton.hidden = YES;
         _sleepTimePicker.hidden = YES;
         _wakeTimePicker.hidden = YES;
@@ -231,25 +233,10 @@ int secondsUntilBedCount;
         percentDisplay = (percentage * 100) / 1;
         self.debtLabel.text = [NSString stringWithFormat:@"Sleep Debt = %d hrs %d min", -debtHours, -debtMins];
         self.percentLabel.text = [NSString stringWithFormat:@"Functioning at %d%%", percentDisplay];
-    
     } else {
-        //first setUp
-        _sleepWakeController.hidden = YES;
-        _sleepTime.hidden = YES;
-        _wakeTime.hidden = YES;
-        _sleepAmountLabel.hidden = YES;
-        _sleepTimePicker.hidden = YES;
-        _wakeTimePicker.hidden = YES;
-        _timeButton.hidden = YES;
-        _setButton.hidden = YES;
-        _bedImageView.hidden = YES;
-        _percentLabel.hidden = YES;
-        _debtLabel.hidden = YES;
-        _sleepNowButton.hidden = YES;
-        _countDownLabel.hidden = YES;
-        
+        //initial set up
+        _homeView.hidden = YES;
     }
-
 }
 
 
@@ -378,7 +365,6 @@ int secondsUntilBedCount;
         //countdown
         long totalHoursUntilBed;
         long totalMinutesUntilBed;
-        60 - nowSecond;
         if(nowHour >= sleepHour){
             totalHoursUntilBed = 24 + (sleepHour - nowHour);
         } else {
@@ -461,5 +447,11 @@ int secondsUntilBedCount;
     }
 
 
+}
+
+- (IBAction)calculatePushed:(id)sender {
+    isSetUp = true;
+    _setUpView.hidden = YES;
+    _homeView.hidden = NO;
 }
 @end

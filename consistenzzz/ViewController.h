@@ -53,6 +53,12 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *debtLabel;
 @property (weak, nonatomic) IBOutlet UILabel *percentLabel;
+@property (weak, nonatomic) IBOutlet UIView *setUpView;
+@property (weak, nonatomic) IBOutlet UIView *homeView;
+- (IBAction)calculatePushed:(id)sender;
+
+
+
 
 
 
