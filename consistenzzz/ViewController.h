@@ -10,9 +10,8 @@
 #import <objc/runtime.h>
 
 @interface ViewController : UIViewController
-{
+@property (weak, nonatomic) IBOutlet UIButton *setUpButton;
 
-}
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *sleepTimePicker;
 @property (weak, nonatomic) IBOutlet UIDatePicker *wakeTimePicker;
@@ -50,6 +49,8 @@
 
 @property(nonatomic) float want;
 @property(nonatomic) float get;
+@property(nonatomic) bool setUp;
+
 @property (weak, nonatomic) IBOutlet UILabel *debtLabel;
 @property (weak, nonatomic) IBOutlet UILabel *percentLabel;
 

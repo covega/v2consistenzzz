@@ -20,8 +20,9 @@ NSDate * sleepPickerTime;
 NSDate * wakePickerTime;
 bool sleepTimeSet = false;
 bool wakeTimeSet = false;
-int IMAGE_COUNT = 21;
 int percentDisplay;
+int MAX_IMAGE_COUNT = 51;
+
 
 //countdown to bed
 NSTimer *countdownTimer;
@@ -195,45 +196,65 @@ int secondsUntilBedCount;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _sleepTimePicker.hidden = YES;
-    _wakeTimePicker.hidden = YES;
-    _setButton.hidden = YES;
-    _sleepAmountLabel.hidden = YES;
-    if (!sleepTimeSet) {
+    if (true) {
+        _setUpButton.hidden = YES;
+        _sleepTimePicker.hidden = YES;
+        _wakeTimePicker.hidden = YES;
+        _setButton.hidden = YES;
+        _sleepAmountLabel.hidden = YES;
+        if (!sleepTimeSet) {
+            _countDownLabel.hidden = YES;
+        }
+        
+        
+        if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
+            [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound|UIUserNotificationTypeBadge
+                                                                                                                  categories:nil]];
+        }
+        
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        
+        
+        
+        //sleep debt/percentage logic
+        float minSleep = 0;
+        float days = 14;
+        float want = self.want;
+        float get = self.get;
+        float debt = days * (get - ((24 - get) * (want/(24 - want))));
+        float maxSleepDebt = days * (minSleep - ((24 - minSleep) * (want/(24 - want))));
+        float percentage = 1 - (debt/maxSleepDebt);
+        int debtHours = (debt / 1);
+        int debtMins = ((debt - debtHours) * 60) / 1;
+        percentDisplay = (percentage * 100) / 1;
+        self.debtLabel.text = [NSString stringWithFormat:@"Sleep Debt = %d hrs %d min", -debtHours, -debtMins];
+        self.percentLabel.text = [NSString stringWithFormat:@"Functioning at %d%%", percentDisplay];
+    
+    } else {
+        //first setUp
+        _sleepWakeController.hidden = YES;
+        _sleepTime.hidden = YES;
+        _wakeTime.hidden = YES;
+        _sleepAmountLabel.hidden = YES;
+        _sleepTimePicker.hidden = YES;
+        _wakeTimePicker.hidden = YES;
+        _timeButton.hidden = YES;
+        _setButton.hidden = YES;
+        _bedImageView.hidden = YES;
+        _percentLabel.hidden = YES;
+        _debtLabel.hidden = YES;
+        _sleepNowButton.hidden = YES;
         _countDownLabel.hidden = YES;
+        
     }
-    
-    
-    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
-        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound|UIUserNotificationTypeBadge
-                                                                                                              categories:nil]];
-    }
-
-    // Do any additional setup after loading the view, typically from a nib.
-    
-    
-
-    
-    
-    //sleep debt/percentage logic
-    float minSleep = 0;
-    float days = 14;
-    float want = self.want;
-    float get = self.get;
-    float debt = days * (get - ((24 - get) * (want/(24 - want))));
-    float maxSleepDebt = days * (minSleep - ((24 - minSleep) * (want/(24 - want))));
-    float percentage = 1 - (debt/maxSleepDebt);
-    int debtHours = (debt / 1);
-    int debtMins = ((debt - debtHours) * 60) / 1;
-    percentDisplay = (percentage * 100) / 1;
-    self.debtLabel.text = [NSString stringWithFormat:@"Sleep Debt = %d hrs %d min", -debtHours, -debtMins];
-    self.percentLabel.text = [NSString stringWithFormat:@"Functioning at %d%%", percentDisplay];
 
 }
 
 
 - (void)viewDidAppear:(BOOL)animated {
-    NSMutableArray *bedImageArray = [[NSMutableArray alloc] initWithCapacity:IMAGE_COUNT];
+    NSMutableArray *bedImageArray = [[NSMutableArray alloc] initWithCapacity:MAX_IMAGE_COUNT];
     
     //build array of images, cycling through image names
     int increment = 2;

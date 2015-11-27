@@ -60,6 +60,7 @@
     float get = self.getStepper.value;
     home.want = want;
     home.get = get;
+    home.setUp = true;
     
 }
 
