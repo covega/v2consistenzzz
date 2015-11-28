@@ -201,6 +201,7 @@ int secondsUntilBedCount;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _sleepView.hidden = YES;
     if (isSetUp) {
         _setUpView.hidden = YES;
         if (!sleepTimeSet) {
@@ -476,5 +477,17 @@ int secondsUntilBedCount;
     int getHours = self.getStepper.value;
     int getMin = (self.getStepper.value - getHours) * 60;
     self.getLabel.text = [NSString stringWithFormat:@"%d hrs %d min", getHours, getMin];
+}
+
+- (IBAction)wakeUpButtonPushed:(id)sender {
+    _sleepView.hidden = YES;
+    _homeView.hidden = NO;
+    NSLog(@"Wake Button Pushed!");
+}
+
+- (IBAction)sleepNowButtonPushed:(id)sender {
+    _sleepView.hidden = NO;
+    _homeView.hidden = YES;
+    
 }
 @end

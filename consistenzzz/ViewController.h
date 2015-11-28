@@ -65,7 +65,9 @@
 @property (weak, nonatomic) IBOutlet UIStepper *getStepper;
 - (IBAction)getStepperPushed:(id)sender;
 
-
+@property (weak, nonatomic) IBOutlet UIView *sleepView;
+- (IBAction)wakeUpButtonPushed:(id)sender;
+- (IBAction)sleepNowButtonPushed:(id)sender;
 
 
 
