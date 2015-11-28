@@ -57,6 +57,7 @@
                                         <rect key="frame" x="160" y="232" width="94" height="29"/>
                                         <connections>
                                             <action selector="wantPressed:" destination="MaA-d9-TIk" eventType="valueChanged" id="XNg-hh-Os8"/>
+                                            <action selector="wantStepperPushed:" destination="yux-7X-IAi" eventType="valueChanged" id="9dU-gS-gEa"/>
                                         </connections>
                                     </stepper>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBC-oa-Ad9">
@@ -96,6 +97,7 @@
                                         <rect key="frame" x="160" y="457" width="94" height="29"/>
                                         <connections>
                                             <action selector="getPressed:" destination="MaA-d9-TIk" eventType="valueChanged" id="vyW-x2-RJ0"/>
+                                            <action selector="getStepperPushed:" destination="yux-7X-IAi" eventType="valueChanged" id="K0g-fM-z2Q"/>
                                         </connections>
                                     </stepper>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KeE-Z3-w6n">
@@ -243,6 +245,8 @@
                         <outlet property="bedImageView" destination="6ck-w8-Ppt" id="3HJ-b8-yN4"/>
                         <outlet property="countDownLabel" destination="PSq-Sq-65v" id="ecA-lL-61c"/>
                         <outlet property="debtLabel" destination="FDG-s3-thO" id="vba-SH-TW8"/>
+                        <outlet property="getLabel" destination="Cs3-6d-nfK" id="3qB-j7-w0V"/>
+                        <outlet property="getStepper" destination="fUR-ql-5Jq" id="tJQ-ey-wUH"/>
                         <outlet property="homeView" destination="hiO-7e-c3K" id="Ioy-GZ-J1U"/>
                         <outlet property="percentLabel" destination="6tv-yh-kW2" id="sz4-eF-UZd"/>
                         <outlet property="setButton" destination="wq2-sf-wtl" id="b1D-4x-LwY"/>
@@ -255,6 +259,8 @@
                         <outlet property="timeButton" destination="USc-FC-73W" id="S20-rS-0NB"/>
                         <outlet property="wakeTime" destination="Vf8-H3-2bO" id="3P1-SX-j0m"/>
                         <outlet property="wakeTimePicker" destination="EZj-20-vcn" id="d6O-P3-efG"/>
+                        <outlet property="wantLabel" destination="dLg-Ak-NwK" id="uLq-Fk-Fah"/>
+                        <outlet property="wantStepper" destination="qQe-mB-zTm" id="6od-s4-FgN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CoB-Ny-0IP" userLabel="First Responder" sceneMemberID="firstResponder"/>

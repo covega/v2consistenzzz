@@ -454,4 +454,15 @@ int secondsUntilBedCount;
     _setUpView.hidden = YES;
     _homeView.hidden = NO;
 }
+- (IBAction)wantStepperPushed:(id)sender {
+    int wantHours = self.wantStepper.value / 1;
+    int wantMin = (self.wantStepper.value - wantHours) * 60;
+    self.wantLabel.text = [NSString stringWithFormat:@"%d hrs %d min", wantHours, wantMin];
+    
+}
+- (IBAction)getStepperPushed:(id)sender {
+    int getHours = self.getStepper.value;
+    int getMin = (self.getStepper.value - getHours) * 60;
+    self.getLabel.text = [NSString stringWithFormat:@"%d hrs %d min", getHours, getMin];
+}
 @end

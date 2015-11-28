@@ -57,6 +57,14 @@
 @property (weak, nonatomic) IBOutlet UIView *homeView;
 - (IBAction)calculatePushed:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *wantLabel;
+@property (weak, nonatomic) IBOutlet UIStepper *wantStepper;
+- (IBAction)wantStepperPushed:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UILabel *getLabel;
+@property (weak, nonatomic) IBOutlet UIStepper *getStepper;
+- (IBAction)getStepperPushed:(id)sender;
+
 
 
 
