@@ -240,19 +240,13 @@
                                 <rect key="frame" x="-1" y="1" width="600" height="800"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00 hours 00 minutes 00 seconds " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxS-l1-ryz">
-                                        <rect key="frame" x="78" y="399" width="258" height="21"/>
+                                        <rect key="frame" x="84" y="479" width="258" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Until Wake Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hek-pC-4ZR">
-                                        <rect key="frame" x="153" y="428" width="109" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7dK-sH-uMH" userLabel="Sleep Image Graphic">
-                                        <rect key="frame" x="20" y="159" width="374" height="206"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo-white-3Z.png" translatesAutoresizingMaskIntoConstraints="NO" id="7dK-sH-uMH" userLabel="Sleep Image Graphic">
+                                        <rect key="frame" x="20" y="144" width="374" height="356"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHK-v0-2D5">
                                         <rect key="frame" x="65" y="72" width="296" height="64"/>
@@ -271,6 +265,12 @@
                                             <action selector="wakeUpButtonPushed:" destination="yux-7X-IAi" eventType="touchUpInside" id="uHg-ml-2Fr"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Until Wake Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hek-pC-4ZR">
+                                        <rect key="frame" x="153" y="508" width="109" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -283,6 +283,7 @@
                     <connections>
                         <outlet property="bedImageView" destination="6ck-w8-Ppt" id="3HJ-b8-yN4"/>
                         <outlet property="countDownLabel" destination="PSq-Sq-65v" id="ecA-lL-61c"/>
+                        <outlet property="countdownToWake" destination="vxS-l1-ryz" id="j0w-MC-WK8"/>
                         <outlet property="debtLabel" destination="FDG-s3-thO" id="vba-SH-TW8"/>
                         <outlet property="getLabel" destination="Cs3-6d-nfK" id="3qB-j7-w0V"/>
                         <outlet property="getStepper" destination="fUR-ql-5Jq" id="tJQ-ey-wUH"/>
@@ -291,8 +292,10 @@
                         <outlet property="setButton" destination="wq2-sf-wtl" id="b1D-4x-LwY"/>
                         <outlet property="setUpView" destination="gbb-JY-qvr" id="qqa-MC-FJQ"/>
                         <outlet property="sleepAmountLabel" destination="cbx-Hu-Qgv" id="yij-rJ-djv"/>
+                        <outlet property="sleepBedImageView" destination="7dK-sH-uMH" id="qaw-bA-Hsw"/>
                         <outlet property="sleepNowButton" destination="4L3-dJ-yjQ" id="gFt-m8-3Tk"/>
                         <outlet property="sleepTime" destination="nFI-xq-hC9" id="sLY-2p-J5B"/>
+                        <outlet property="sleepTimeDisplay" destination="OHK-v0-2D5" id="Q3T-kZ-6JS"/>
                         <outlet property="sleepTimePicker" destination="UZo-R0-6Jn" id="DNi-0l-xiu"/>
                         <outlet property="sleepView" destination="LF7-TO-m83" id="aH6-QM-H0v"/>
                         <outlet property="sleepWakeController" destination="4mY-cV-myX" id="AZl-nd-0xT"/>
@@ -322,7 +325,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alarms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bax-mB-gL4">
                                 <rect key="frame" x="294" y="138" width="54" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -349,7 +352,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a09-zg-Wwo">
                                 <rect key="frame" x="104" y="123" width="64" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -376,7 +379,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Learn More" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0T-hU-AIg">
                                 <rect key="frame" x="80" y="132" width="87" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -403,7 +406,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Goals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQj-6O-Rwi">
                                 <rect key="frame" x="214" y="164" width="44" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -493,6 +496,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Logo-white-3Z.png" width="500" height="500"/>
         <image name="alarm_clock-32.png" width="32" height="32"/>
         <image name="archive-32.png" width="32" height="32"/>
         <image name="bookmark-32.png" width="32" height="32"/>

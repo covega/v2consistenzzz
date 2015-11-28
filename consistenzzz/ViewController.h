@@ -68,7 +68,10 @@
 @property (weak, nonatomic) IBOutlet UIView *sleepView;
 - (IBAction)wakeUpButtonPushed:(id)sender;
 - (IBAction)sleepNowButtonPushed:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *sleepBedImageView;
 
+@property (weak, nonatomic) IBOutlet UILabel *sleepTimeDisplay;
+@property (weak, nonatomic) IBOutlet UILabel *countdownToWake;
 
 
 

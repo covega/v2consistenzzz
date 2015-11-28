@@ -29,28 +29,42 @@ int MAX_IMAGE_COUNT = 51;
 bool isSetUp = false;
 
 
-//countdown to bed
+//countdown to bed/wake
 NSTimer *countdownTimer;
-int secondsUntilBedCount;
+int countdownSeconds;
+bool timerRunning = false;
 
 -(void)timerRun{
-    secondsUntilBedCount = secondsUntilBedCount - 1;
-    int hoursUntilBed = secondsUntilBedCount / 3600;
-    int minutesUntilBed = (secondsUntilBedCount - (hoursUntilBed * 3600)) / 60;
-    int secondsUntilBed = secondsUntilBedCount - (minutesUntilBed * 60) - (hoursUntilBed * 3600);
+    countdownSeconds = countdownSeconds - 1;
+    int hoursCount = countdownSeconds / 3600;
+    int minutesCount = (countdownSeconds - (hoursCount * 3600)) / 60;
+    int secondsCount = countdownSeconds - (minutesCount * 60) - (hoursCount * 3600);
     
-    _countDownLabel.text = [NSString stringWithFormat:@"Bedtime in %2d hrs %2d mins %2d secs", hoursUntilBed, minutesUntilBed, secondsUntilBed];
+    if(_homeView.hidden == NO){
+    _countDownLabel.text = [NSString stringWithFormat:@"Bedtime in %2d hrs %2d mins %2d secs", hoursCount, minutesCount, secondsCount];
+    } else if (_sleepView.hidden == NO){
+        NSLog(@"sleep view timer");
+        _countdownToWake.text = [NSString stringWithFormat:@"%2d hours %2d minutes %2d seconds", hoursCount, minutesCount, secondsCount];
+    }
     
-    if (secondsUntilBedCount == 0) {
+    if (countdownSeconds == 0) {
         [countdownTimer invalidate];
         countdownTimer = nil;
     }
+
 }
 
 
 
--(void) setBedtimeTimer {
+-(void) setTimer {
+    NSLog(@"set timer");
+    if (timerRunning) {
+        [countdownTimer invalidate];
+        countdownTimer = nil;
+    }
     countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerRun) userInfo:nil repeats:YES];
+    timerRunning = true;
+
 }
 
 
@@ -379,8 +393,8 @@ int secondsUntilBedCount;
         } else {
             totalMinutesUntilBed = sleepMinute - nowMinute - 1;
         }
-        secondsUntilBedCount = (totalHoursUntilBed * 3600) + (totalMinutesUntilBed * 60) + (60 - nowSecond);
-        [self setBedtimeTimer];
+        countdownSeconds = (totalHoursUntilBed * 3600) + (totalMinutesUntilBed * 60) + (60 - nowSecond);
+        [self setTimer];
         
         
         
@@ -482,12 +496,53 @@ int secondsUntilBedCount;
 - (IBAction)wakeUpButtonPushed:(id)sender {
     _sleepView.hidden = YES;
     _homeView.hidden = NO;
-    NSLog(@"Wake Button Pushed!");
 }
 
 - (IBAction)sleepNowButtonPushed:(id)sender {
     _sleepView.hidden = NO;
     _homeView.hidden = YES;
     
+    //countdow to wake
+
+
+    
+    NSMutableArray *sleepBedImageArray = [[NSMutableArray alloc] initWithCapacity:4];
+    //build array of images, cycling through image names
+    for(int i = 0; i < 4; i++){
+        [sleepBedImageArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"Logo-white-%dZ.png", i]]];
+    }
+    self.sleepBedImageView.animationImages = sleepBedImageArray;
+    self.sleepBedImageView.animationDuration = 3;
+    [self.sleepBedImageView startAnimating];
+    [self sleepViewTimeDisplay];
+    
+}
+
+-(void)sleepViewTimeDisplay{
+    
+    NSCalendar * calendar = [NSCalendar currentCalendar];
+    NSDate *now = [NSDate date];
+    NSDateComponents *nowComponents = [calendar components:(NSCalendarUnitHour| NSCalendarUnitMinute) fromDate: now];
+    NSDateComponents *wakeComponents = [calendar components:(NSCalendarUnitHour| NSCalendarUnitMinute) fromDate: _wakeTimePicker.date];
+    NSInteger wakeHour = [wakeComponents hour];
+    NSInteger wakeMinute = [wakeComponents minute];
+    NSInteger nowHour = [nowComponents hour];
+    NSInteger nowMinute = [nowComponents minute];
+    NSInteger nowSecond = [nowComponents second];
+    long totalHours = -1;
+    long totalMinutes = -1;
+    if(nowHour >= wakeHour){
+        totalHours = 24 + (wakeHour - nowHour);
+    } else {
+        totalHours = wakeHour - nowHour;
+    }
+    if (nowMinute > wakeMinute) {
+        totalMinutes = 60 + (wakeMinute - nowMinute);
+        totalHours = totalHours - 1;
+    } else {
+        totalMinutes = wakeMinute - nowMinute;
+    }
+    countdownSeconds = (totalHours * 3600) + (totalMinutes * 60) + (60 - nowSecond);
+    [self setTimer];
 }
 @end

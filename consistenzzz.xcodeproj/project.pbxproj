@@ -103,11 +103,11 @@
 		4616EBEB1C0961AF009CD06A /* Logo-black-1Z.png in Resources */ = {isa = PBXBuildFile; fileRef = 4616EBE31C0961AF009CD06A /* Logo-black-1Z.png */; };
 		4616EBEC1C0961AF009CD06A /* Logo-black-2Z.png in Resources */ = {isa = PBXBuildFile; fileRef = 4616EBE41C0961AF009CD06A /* Logo-black-2Z.png */; };
 		4616EBED1C0961AF009CD06A /* Logo-black-3Z.png in Resources */ = {isa = PBXBuildFile; fileRef = 4616EBE51C0961AF009CD06A /* Logo-black-3Z.png */; };
-		4616EBEE1C0961AF009CD06A /* Logo-black-noZ.png in Resources */ = {isa = PBXBuildFile; fileRef = 4616EBE61C0961AF009CD06A /* Logo-black-noZ.png */; };
+		4616EBEE1C0961AF009CD06A /* Logo-black-0Z.png in Resources */ = {isa = PBXBuildFile; fileRef = 4616EBE61C0961AF009CD06A /* Logo-black-0Z.png */; };
 		4616EBEF1C0961AF009CD06A /* Logo-white-1Z.png in Resources */ = {isa = PBXBuildFile; fileRef = 4616EBE71C0961AF009CD06A /* Logo-white-1Z.png */; };
 		4616EBF01C0961AF009CD06A /* Logo-white-2Z.png in Resources */ = {isa = PBXBuildFile; fileRef = 4616EBE81C0961AF009CD06A /* Logo-white-2Z.png */; };
 		4616EBF11C0961AF009CD06A /* Logo-white-3Z.png in Resources */ = {isa = PBXBuildFile; fileRef = 4616EBE91C0961AF009CD06A /* Logo-white-3Z.png */; };
-		4616EBF21C0961AF009CD06A /* Logo-white-noZ.png in Resources */ = {isa = PBXBuildFile; fileRef = 4616EBEA1C0961AF009CD06A /* Logo-white-noZ.png */; };
+		4616EBF21C0961AF009CD06A /* Logo-white-0Z.png in Resources */ = {isa = PBXBuildFile; fileRef = 4616EBEA1C0961AF009CD06A /* Logo-white-0Z.png */; };
 		5892A22A1BFD3DC100051322 /* alarm-clock-sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 5892A2291BFD3DC100051322 /* alarm-clock-sound.caf */; };
 		58DC78BE1BF66C930063B2CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DC78BD1BF66C930063B2CE /* main.m */; };
 		58DC78C11BF66C930063B2CE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DC78C01BF66C930063B2CE /* AppDelegate.m */; };
@@ -226,11 +226,11 @@
 		4616EBE31C0961AF009CD06A /* Logo-black-1Z.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-black-1Z.png"; sourceTree = "<group>"; };
 		4616EBE41C0961AF009CD06A /* Logo-black-2Z.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-black-2Z.png"; sourceTree = "<group>"; };
 		4616EBE51C0961AF009CD06A /* Logo-black-3Z.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-black-3Z.png"; sourceTree = "<group>"; };
-		4616EBE61C0961AF009CD06A /* Logo-black-noZ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-black-noZ.png"; sourceTree = "<group>"; };
+		4616EBE61C0961AF009CD06A /* Logo-black-0Z.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-black-0Z.png"; sourceTree = "<group>"; };
 		4616EBE71C0961AF009CD06A /* Logo-white-1Z.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-white-1Z.png"; sourceTree = "<group>"; };
 		4616EBE81C0961AF009CD06A /* Logo-white-2Z.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-white-2Z.png"; sourceTree = "<group>"; };
 		4616EBE91C0961AF009CD06A /* Logo-white-3Z.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-white-3Z.png"; sourceTree = "<group>"; };
-		4616EBEA1C0961AF009CD06A /* Logo-white-noZ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-white-noZ.png"; sourceTree = "<group>"; };
+		4616EBEA1C0961AF009CD06A /* Logo-white-0Z.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-white-0Z.png"; sourceTree = "<group>"; };
 		5892A2291BFD3DC100051322 /* alarm-clock-sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "alarm-clock-sound.caf"; sourceTree = "<group>"; };
 		58DC78B81BF66C930063B2CE /* consistenzzz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = consistenzzz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58DC78BC1BF66C930063B2CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -349,11 +349,11 @@
 				4616EBE31C0961AF009CD06A /* Logo-black-1Z.png */,
 				4616EBE41C0961AF009CD06A /* Logo-black-2Z.png */,
 				4616EBE51C0961AF009CD06A /* Logo-black-3Z.png */,
-				4616EBE61C0961AF009CD06A /* Logo-black-noZ.png */,
+				4616EBE61C0961AF009CD06A /* Logo-black-0Z.png */,
 				4616EBE71C0961AF009CD06A /* Logo-white-1Z.png */,
 				4616EBE81C0961AF009CD06A /* Logo-white-2Z.png */,
 				4616EBE91C0961AF009CD06A /* Logo-white-3Z.png */,
-				4616EBEA1C0961AF009CD06A /* Logo-white-noZ.png */,
+				4616EBEA1C0961AF009CD06A /* Logo-white-0Z.png */,
 			);
 			name = "Sleep Now Logos";
 			path = "../../Sleep Now Logos";
@@ -601,7 +601,7 @@
 				4616EB5A1C083C7B009CD06A /* two42.png in Resources */,
 				4616EB441C083C7B009CD06A /* 100-multipart.png in Resources */,
 				4616EB771C083C7B009CD06A /* two100.png in Resources */,
-				4616EBF21C0961AF009CD06A /* Logo-white-noZ.png in Resources */,
+				4616EBF21C0961AF009CD06A /* Logo-white-0Z.png in Resources */,
 				4616EBBA1C084F29009CD06A /* home-75.png in Resources */,
 				4616EBCE1C085445009CD06A /* bookmark-512_.png in Resources */,
 				4616EB661C083C7B009CD06A /* two66.png in Resources */,
@@ -613,7 +613,7 @@
 				4616EB591C083C7B009CD06A /* two40.png in Resources */,
 				4616EB5D1C083C7B009CD06A /* two48.png in Resources */,
 				4616EB5C1C083C7B009CD06A /* two46.png in Resources */,
-				4616EBEE1C0961AF009CD06A /* Logo-black-noZ.png in Resources */,
+				4616EBEE1C0961AF009CD06A /* Logo-black-0Z.png in Resources */,
 				4616EBAE1C084E32009CD06A /* sleep 512.png in Resources */,
 				4616EBF01C0961AF009CD06A /* Logo-white-2Z.png in Resources */,
 				4616EB511C083C7B009CD06A /* two24.png in Resources */,
