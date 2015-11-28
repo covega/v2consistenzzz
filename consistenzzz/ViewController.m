@@ -20,7 +20,11 @@ NSDate * sleepPickerTime;
 NSDate * wakePickerTime;
 bool sleepTimeSet = false;
 bool wakeTimeSet = false;
-int percentDisplay;
+float want;
+float get;
+float debt;
+float days = 14;
+int percent;
 int MAX_IMAGE_COUNT = 51;
 bool isSetUp = false;
 
@@ -199,15 +203,9 @@ int secondsUntilBedCount;
     [super viewDidLoad];
     if (isSetUp) {
         _setUpView.hidden = YES;
-        _setUpButton.hidden = YES;
-        _sleepTimePicker.hidden = YES;
-        _wakeTimePicker.hidden = YES;
-        _setButton.hidden = YES;
-        _sleepAmountLabel.hidden = YES;
         if (!sleepTimeSet) {
             _countDownLabel.hidden = YES;
         }
-        
         
         if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
             [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound|UIUserNotificationTypeBadge
@@ -216,23 +214,6 @@ int secondsUntilBedCount;
         
         // Do any additional setup after loading the view, typically from a nib.
         
-        
-        
-        
-        
-        //sleep debt/percentage logic
-        float minSleep = 0;
-        float days = 14;
-        float want = self.want;
-        float get = self.get;
-        float debt = days * (get - ((24 - get) * (want/(24 - want))));
-        float maxSleepDebt = days * (minSleep - ((24 - minSleep) * (want/(24 - want))));
-        float percentage = 1 - (debt/maxSleepDebt);
-        int debtHours = (debt / 1);
-        int debtMins = ((debt - debtHours) * 60) / 1;
-        percentDisplay = (percentage * 100) / 1;
-        self.debtLabel.text = [NSString stringWithFormat:@"Sleep Debt = %d hrs %d min", -debtHours, -debtMins];
-        self.percentLabel.text = [NSString stringWithFormat:@"Functioning at %d%%", percentDisplay];
     } else {
         //initial set up
         _homeView.hidden = YES;
@@ -241,20 +222,41 @@ int secondsUntilBedCount;
 
 
 - (void)viewDidAppear:(BOOL)animated {
+    if (isSetUp) {
+        [self animateBedGraphic];
+    }
+
+}
+
+-(void)calculateSleepDebt{
+    //sleep debt/percentage logic
+    debt = days * (get - ((24 - get) * (want/(24 - want))));
+    int debtHours = (debt / 1);
+    int debtMins = ((debt - debtHours) * 60) / 1;
+    self.debtLabel.text = [NSString stringWithFormat:@"Sleep Debt = %d hrs %d min", -debtHours, -debtMins];
+}
+
+-(void)calculatePercentage{
+    float minSleep = 0;
+    float maxSleepDebt = days * (minSleep - ((24 - minSleep) * (want/(24 - want))));
+    percent = ((1 - (debt/maxSleepDebt)) * 100) / 1;
+    self.percentLabel.text = [NSString stringWithFormat:@"Functioning at %d%%", percent];
+}
+
+
+-(void)animateBedGraphic{
     NSMutableArray *bedImageArray = [[NSMutableArray alloc] initWithCapacity:MAX_IMAGE_COUNT];
     
     //build array of images, cycling through image names
     int increment = 2;
-    for(int i = 0; i < (percentDisplay + 1) / increment; i++){
+    for(int i = 0; i < (percent + 1) / increment; i++){
         [bedImageArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"two%d.png", (i * increment) + increment]]];
     }
-    
     self.bedImageView.animationImages = bedImageArray;
     self.bedImageView.animationRepeatCount = 1;
     self.bedImageView.animationDuration = 2;
-    self.bedImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"two%d.png", percentDisplay - (percentDisplay % increment)]];
+    self.bedImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"two%d.png", percent - (percent % increment)]];
     [self.bedImageView startAnimating];
-
 }
 
 
@@ -453,6 +455,16 @@ int secondsUntilBedCount;
     isSetUp = true;
     _setUpView.hidden = YES;
     _homeView.hidden = NO;
+    _sleepTimePicker.hidden = YES;
+    _wakeTimePicker.hidden = YES;
+    _setButton.hidden = YES;
+    _sleepAmountLabel.hidden = YES;
+    _countDownLabel.hidden = YES;
+    want = self.wantStepper.value;
+    get = self.getStepper.value;
+    [self calculateSleepDebt];
+    [self calculatePercentage];
+    [self animateBedGraphic];
 }
 - (IBAction)wantStepperPushed:(id)sender {
     int wantHours = self.wantStepper.value / 1;
