@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <objc/runtime.h>
+#import <Parse/Parse.h>
 
 
 @interface ViewController ()
@@ -216,6 +217,11 @@ bool timerRunning = false;
 - (void)viewDidLoad {
     [super viewDidLoad];
     _sleepView.hidden = YES;
+    
+    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    testObject[@"foo"] = @"bar";
+    [testObject saveInBackground];
+    
     if (isSetUp) {
         _setUpView.hidden = YES;
         if (!sleepTimeSet) {
@@ -240,7 +246,6 @@ bool timerRunning = false;
     if (isSetUp) {
         [self animateBedGraphic];
     }
-
 }
 
 -(void)calculateSleepDebt{
@@ -264,14 +269,17 @@ bool timerRunning = false;
     
     //build array of images, cycling through image names
     int increment = 2;
+    int hold = percent; // to handle greater than 100%
+    if (percent > 100) percent = 100;
     for(int i = 0; i < (percent + 1) / increment; i++){
-        [bedImageArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"two%d.png", (i * increment) + increment]]];
+        [bedImageArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"graphic%d.png", i]]];
     }
     self.bedImageView.animationImages = bedImageArray;
     self.bedImageView.animationRepeatCount = 1;
     self.bedImageView.animationDuration = 2;
-    self.bedImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"two%d.png", percent - (percent % increment)]];
+    self.bedImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"graphic%d.png", (percent - (percent % increment)) / 2]];
     [self.bedImageView startAnimating];
+    percent = hold; // reset value for "functioning at label"
 }
 
 
